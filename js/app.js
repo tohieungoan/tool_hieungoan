@@ -598,12 +598,10 @@ async function pasteToSlot(event, index) {
 
 async function pasteFromClipboardToNextEmptySlot() {
     let targetIdx = activeSlotIndex;
-    if (targetIdx < 0 || targetIdx >= slotsData.length || (slotsData[targetIdx] && slotsData[targetIdx].img !== null)) {
+    if (targetIdx < 0 || targetIdx >= slotsData.length || (slotsData[targetIdx] && slotsData[targetIdx].img !== null) || (typeof isSkinSlot === 'function' && !isSkinSlot(slotsData[targetIdx]))) {
         const nextEmpty = findNextEmptySlotIndex(0);
         if (nextEmpty !== -1) {
             targetIdx = nextEmpty;
-        } else if (targetIdx < 0 || targetIdx >= slotsData.length) {
-            targetIdx = 0;
         }
     }
     await pasteToSlot(null, targetIdx);
@@ -666,12 +664,13 @@ function handleGlobalPaste(e) {
 
     // 3. Studio Main Slots
     let startIdx = activeSlotIndex;
-    if (startIdx < 0 || startIdx >= slotsData.length || (slotsData[startIdx] && slotsData[startIdx].img !== null)) {
+    if (startIdx < 0 || startIdx >= slotsData.length || (slotsData[startIdx] && slotsData[startIdx].img !== null) || (typeof isSkinSlot === 'function' && !isSkinSlot(slotsData[startIdx]))) {
         const emptyIdx = findNextEmptySlotIndex(0);
         if (emptyIdx !== -1) {
             startIdx = emptyIdx;
-        } else if (startIdx < 0 || startIdx >= slotsData.length) {
-            startIdx = 0;
+        } else {
+            showToast("Tất cả các ô skin trong khung đều đã có ảnh!");
+            return;
         }
     }
 
@@ -680,12 +679,20 @@ function handleGlobalPaste(e) {
 
     imageFiles.forEach((file, fIdx) => {
         let targetSlot = currSlot;
-        if (fIdx > 0) {
+        if (fIdx > 0 || (typeof isSkinSlot === 'function' && !isSkinSlot(slotsData[targetSlot]))) {
             const nextEmpty = findNextEmptySlotIndex(currSlot);
             if (nextEmpty !== -1) {
                 targetSlot = nextEmpty;
             } else {
-                targetSlot = (currSlot + 1) % slotsData.length;
+                return;
+            }
+        }
+        if (typeof isSkinSlot === 'function' && !isSkinSlot(slotsData[targetSlot])) {
+            const nextEmpty = findNextEmptySlotIndex(targetSlot);
+            if (nextEmpty !== -1) {
+                targetSlot = nextEmpty;
+            } else {
+                return;
             }
         }
         currSlot = targetSlot + 1;
@@ -699,6 +706,14 @@ function handleGlobalPaste(e) {
                 slotsData[targetSlot].rotate = 0;
                 slotsData[targetSlot].offsetX = 0;
                 slotsData[targetSlot].offsetY = 0;
+
+                // Tự động nhận diện Skin ID từ ảnh dán
+                if (typeof identifySkinFromImage === 'function') {
+                    const match = identifySkinFromImage(img);
+                    if (match && match.skinId) {
+                        slotsData[targetSlot].skinId = match.skinId;
+                    }
+                }
 
                 loadedCount++;
                 if (loadedCount === imageFiles.length) {

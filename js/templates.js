@@ -84,3 +84,66 @@ const TEMPLATE_CONFIGS = {
         ]
     }
 };
+
+/**
+ * Kiểm tra xem một slot có phải là slot chứa Skin / Tướng hay không.
+ * Các slot Header, Bảng thông số, Profile in-game, Chân dung/Avatar
+ * TUYỆT ĐỐI KHÔNG nhận diện hoặc cắt lưới vào.
+ */
+function isSkinSlot(slot) {
+    if (!slot) return false;
+    const id = String(slot.id || '').toLowerCase();
+    const label = String(slot.label || '').toLowerCase();
+
+    // 1. Danh sách ID cấm tuyệt đối (Header, Thông số, Profile, Chân dung...)
+    const forbiddenIds = [
+        'top_bg_art',
+        'stats_panel',
+        'portrait_right',
+        'profile_full_top',
+        'profile_left',
+        'top_bg'
+    ];
+    if (forbiddenIds.includes(slot.id) || forbiddenIds.includes(id)) {
+        return false;
+    }
+
+    // 2. Kiểm tra từ khóa trong ID
+    if (id.includes('top_bg') ||
+        id.includes('header') ||
+        id.includes('bg_art') ||
+        id.includes('stats') ||
+        id.includes('profile') ||
+        id.includes('portrait') ||
+        id.includes('avatar')) {
+        return false;
+    }
+
+    // 3. Kiểm tra nhãn hiển thị (label)
+    if (label.includes('phôi header') ||
+        label.includes('thông số') ||
+        label.includes('chân dung') ||
+        label.includes('avatar') ||
+        label.includes('profile') ||
+        label.includes('bảng thông số')) {
+        return false;
+    }
+
+    // 4. Các slot hợp lệ chứa thẻ Skin:
+    // a) Ô lưới skin: grid_skins_...
+    if (id.startsWith('grid_skins')) return true;
+
+    // b) Các ô Card VIP / Tướng:
+    const vipHeroIds = [
+        'top_hero_1', 'top_hero_2', 'top_hero_3', 'top_hero_4', 'top_hero_5', 'top_hero_6',
+        'hero_main', 'side_hero_1', 'side_hero_2', 'side_hero_3', 'side_hero_4',
+        'hot_hero_1', 'hot_hero_2'
+    ];
+    if (vipHeroIds.includes(slot.id) || vipHeroIds.includes(id)) return true;
+
+    // c) Bất kỳ slot tướng/skin nào khác
+    if (id.startsWith('hero_') || id.startsWith('side_hero_') || id.startsWith('hot_hero_')) return true;
+
+    return false;
+}
+window.isSkinSlot = isSkinSlot;

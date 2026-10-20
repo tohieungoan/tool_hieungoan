@@ -18,24 +18,29 @@ let batchGridState = {
 };
 
 function findNextEmptySlotIndex(startFromIdx) {
-    let idx = Math.max(1, startFromIdx || 1);
+    let idx = Math.max(0, startFromIdx !== undefined ? startFromIdx : 0);
     while (idx < slotsData.length) {
         if (slotsData[idx] && slotsData[idx].img === null) {
-            return idx;
+            // Chỉ trả về nếu slot này là slot skin / tướng hợp lệ
+            if (typeof isSkinSlot === 'function' ? isSkinSlot(slotsData[idx]) : true) {
+                return idx;
+            }
         }
         idx++;
     }
     return -1;
 }
+window.findNextEmptySlotIndex = findNextEmptySlotIndex;
 
 function openBatchGridModal() {
     const modal = document.getElementById('batchGridModal');
     if (modal) modal.classList.remove('hidden');
 
-    // Auto set target slot index to first empty slot if current targeted slot already has image
+    // Auto set target slot index to first empty slot if current targeted slot already has image or is not skin slot
     const currentTarget = batchGridState.targetStartSlotIndex;
-    if (!slotsData[currentTarget] || slotsData[currentTarget].img !== null) {
-        const emptyIdx = findNextEmptySlotIndex(1);
+    const isTargetValid = slotsData[currentTarget] && slotsData[currentTarget].img === null && (typeof isSkinSlot === 'function' ? isSkinSlot(slotsData[currentTarget]) : true);
+    if (!isTargetValid) {
+        const emptyIdx = findNextEmptySlotIndex(0);
         if (emptyIdx !== -1) {
             batchGridState.targetStartSlotIndex = emptyIdx;
         }
@@ -53,7 +58,7 @@ function closeBatchGridModal() {
 }
 
 function autoSetNextEmptySlot() {
-    const emptyIdx = findNextEmptySlotIndex(1);
+    const emptyIdx = findNextEmptySlotIndex(0);
     if (emptyIdx !== -1) {
         batchGridState.targetStartSlotIndex = emptyIdx;
         const inpTarget = document.getElementById('gridTargetStart');
@@ -61,7 +66,7 @@ function autoSetNextEmptySlot() {
         renderBatchGridCanvas();
         showToast(`Đã chọn Slot trống tiếp theo: Slot #${emptyIdx}`);
     } else {
-        showToast("Tất cả các slot trong khung đều đã có ảnh!");
+        showToast("Tất cả các slot skin trong khung đều đã có ảnh!");
     }
 }
 
@@ -509,12 +514,16 @@ function executeBatchGridCrop() {
     const cellImgH = origCropH / rows;
 
     let currentSlotSearch = batchGridState.targetStartSlotIndex;
+    if (typeof isSkinSlot === 'function' && slotsData[currentSlotSearch] && !isSkinSlot(slotsData[currentSlotSearch])) {
+        const firstValid = findNextEmptySlotIndex(currentSlotSearch);
+        if (firstValid !== -1) currentSlotSearch = firstValid;
+    }
 
     // Đảm bảo không giới hạn số lượng: Tự động mở rộng thêm số ô skin nếu số ô trống không đủ cho totalCells
     let countEmpty = 0;
-    let checkIdx = Math.max(1, currentSlotSearch);
+    let checkIdx = Math.max(0, currentSlotSearch);
     while (checkIdx < slotsData.length) {
-        if (slotsData[checkIdx] && slotsData[checkIdx].img === null) {
+        if (slotsData[checkIdx] && slotsData[checkIdx].img === null && (typeof isSkinSlot === 'function' ? isSkinSlot(slotsData[checkIdx]) : true)) {
             countEmpty++;
         }
         checkIdx++;
@@ -530,9 +539,9 @@ function executeBatchGridCrop() {
     }
 
     let targetSlotIndices = [];
-    currentSlotSearch = batchGridState.targetStartSlotIndex;
+    currentSlotSearch = Math.max(0, currentSlotSearch);
 
-    // Collect ONLY empty slot indices starting from currentSlotSearch
+    // Collect ONLY empty skin slot indices starting from currentSlotSearch
     for (let i = 0; i < totalCells; i++) {
         const emptySlotIdx = findNextEmptySlotIndex(currentSlotSearch);
         if (emptySlotIdx === -1) {

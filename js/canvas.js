@@ -133,6 +133,7 @@ function updateRender() {
     if (canvas.height !== requiredHeight) canvas.height = requiredHeight;
 
     renderSceneToContext(ctx, w, canvas.height, false);
+    if (typeof updateValuationWidget === 'function') updateValuationWidget();
 }
 
 // Export for app.js and window scope

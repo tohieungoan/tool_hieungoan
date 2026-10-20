@@ -31,7 +31,7 @@ function openAutoDetectModal() {
     if (modal) modal.classList.remove('hidden');
 
     if (typeof findNextEmptySlotIndex === 'function') {
-        const emptyIdx = findNextEmptySlotIndex(1);
+        const emptyIdx = findNextEmptySlotIndex(0);
         if (emptyIdx !== -1) {
             autoDetectState.targetStartSlotIndex = emptyIdx;
         }
@@ -272,9 +272,8 @@ function analyzeSingleImageFrames(img, label) {
                     inRow = false;
                     const rEnd = y - gapCount;
                     const rh = rEnd - rStart;
-                    const touchesTop = (rStart <= 15);
-                    const touchesBottom = (rEnd >= H - 15);
-                    const isCutOff = touchesTop || touchesBottom || (rh < H * 0.22);
+                    // Với ảnh cuộn, chỉ coi là che khuất nếu hàng quá nhỏ (<60px)
+                    const isCutOff = (rh < 60);
 
                     if (rh >= 50) {
                         rawRows.push({
@@ -289,37 +288,25 @@ function analyzeSingleImageFrames(img, label) {
         }
     }
 
-    // Phân loại và chọn hàng tốt nhất (hàng hoàn chỉnh không bị che khuất)
-    let selectedRow = null;
-    const fullRows = rawRows.filter(r => !r.isCutOff);
-    if (fullRows.length > 0) {
-        fullRows.sort((a, b) => b.height - a.height);
-        selectedRow = fullRows[0];
-    } else if (rawRows.length > 0) {
-        rawRows.sort((a, b) => b.height - a.height);
-        selectedRow = rawRows[0];
-    } else {
-        selectedRow = {
-            top: Math.round(H * 0.35),
-            bottom: Math.round(H * 0.73),
-            height: Math.round(H * 0.38),
-            isCutOff: false
-        };
-    }
-
-    // Danh sách các hàng phát hiện để người dùng có thể đổi hàng nếu muốn
+    // Danh sách các hàng phát hiện để người dùng có thể chọn 1, nhiều hoặc toàn bộ hàng
     const detectedRows = rawRows.map((r, idx) => ({
         index: idx + 1,
         name: `Hàng #${idx + 1} (${r.height}px)`,
         isObscured: r.isCutOff,
-        reason: r.isCutOff ? (r.top <= 15 ? "Bị cuộn che khuất mép trên ❌" : "Bị cuộn che khuất mép dưới ❌") : "Hàng hoàn chỉnh 100% không bị che khuất ✅",
+        reason: r.isCutOff ? "Mép cuộn (vẫn crop tốt nếu bạn chọn)" : "Hàng chuẩn đầy đủ ✅",
         top: r.top,
         bottom: r.bottom,
         height: r.height
     }));
 
-    let selectedRowIdx = detectedRows.findIndex(r => r.top === selectedRow.top);
-    if (selectedRowIdx === -1) selectedRowIdx = 0;
+    // Mặc định chọn hàng đầu tiên hoặc tất cả
+    let selectedRowIdx = 0;
+    let selectedRow = rawRows[0] || {
+        top: Math.round(H * 0.35),
+        bottom: Math.round(H * 0.73),
+        height: Math.round(H * 0.38),
+        isCutOff: false
+    };
 
     // 4. Trích xuất các thẻ Skin Card và Khung viền (Frame) của hàng đang chọn
     const padX = Math.round(colBands[0].width * 0.07);
@@ -330,13 +317,11 @@ function analyzeSingleImageFrames(img, label) {
     const frames = [];
 
     colBands.forEach((col, idx) => {
-        // Kiểm tra xem ô này có thực sự chứa ảnh skin hay chỉ là ô nền xanh trống cuối danh sách
         const testX = Math.round((col.start + col.end) / 2);
         const testY = Math.round((selectedRow.top + selectedRow.bottom) / 2);
         const centerP = getPixel(testX, testY);
 
         if (isBlueFrame(centerP)) {
-            // Nền xanh trống (ví dụ slot thứ 4 khi acc chỉ còn 3 skin)
             return;
         }
 
@@ -370,7 +355,8 @@ function analyzeSingleImageFrames(img, label) {
         colBands: colBands,
         rawRows: rawRows,
         detectedRows: detectedRows.length ? detectedRows : [{ index: 1, name: "Hàng Hoàn Chỉnh", isObscured: false, reason: "Chuẩn xác 100% ✅" }],
-        selectedRowIdx: selectedRowIdx
+        selectedRowIdx: selectedRowIdx,
+        selectedRowsSet: new Set(detectedRows.map((_, i) => i)) // Mặc định chọn tất cả hàng phát hiện
     };
 }
 
@@ -563,6 +549,41 @@ function resetGridToExactDefault() {
 }
 window.resetGridToExactDefault = resetGridToExactDefault;
 
+function selectAllDetectedRows() {
+    const activeItem = autoDetectState.batchImages[autoDetectState.activeBatchIndex];
+    if (!activeItem) return;
+    activeItem.selectedRowsSet = new Set(autoDetectState.detectedRows.map((_, i) => i));
+    updateAutoDetectUIInfo(activeItem.label);
+    renderAutoDetectCanvas();
+    if (typeof showToast === 'function') showToast(`Đã chọn toàn bộ ${activeItem.selectedRowsSet.size} hàng phát hiện!`);
+}
+window.selectAllDetectedRows = selectAllDetectedRows;
+
+function deselectAllDetectedRows() {
+    const activeItem = autoDetectState.batchImages[autoDetectState.activeBatchIndex];
+    if (!activeItem) return;
+    activeItem.selectedRowsSet = new Set();
+    updateAutoDetectUIInfo(activeItem.label);
+    renderAutoDetectCanvas();
+    if (typeof showToast === 'function') showToast("Đã bỏ chọn tất cả các hàng.");
+}
+window.deselectAllDetectedRows = deselectAllDetectedRows;
+
+function toggleRowSelection(rowIdx, isChecked, event) {
+    if (event) event.stopPropagation();
+    const activeItem = autoDetectState.batchImages[autoDetectState.activeBatchIndex];
+    if (!activeItem) return;
+    if (!activeItem.selectedRowsSet) activeItem.selectedRowsSet = new Set();
+    
+    if (isChecked) {
+        activeItem.selectedRowsSet.add(rowIdx);
+    } else {
+        activeItem.selectedRowsSet.delete(rowIdx);
+    }
+    selectDetectedRow(rowIdx, false);
+}
+window.toggleRowSelection = toggleRowSelection;
+
 function updateAutoDetectUIInfo(sourceLabel) {
     const sourceEl = document.getElementById('autoDetectSourceLabel');
     if (sourceEl) sourceEl.innerText = sourceLabel || 'Ảnh đang phân tích';
@@ -570,44 +591,76 @@ function updateAutoDetectUIInfo(sourceLabel) {
     const infoContainer = document.getElementById('autoDetectRowsList');
     if (!infoContainer) return;
 
-    let html = '';
+    const activeItem = autoDetectState.batchImages[autoDetectState.activeBatchIndex];
+    const selectedSet = (activeItem && activeItem.selectedRowsSet) ? activeItem.selectedRowsSet : new Set([autoDetectState.selectedRowIdx]);
+    const totalRowsCount = autoDetectState.detectedRows.length;
+    const selectedCount = selectedSet.size;
+
+    let html = `
+    <!-- Multi-row Selector Bar -->
+    <div class="flex items-center justify-between bg-slate-950 p-2 rounded-xl border border-slate-800 mb-2 text-xs">
+        <div class="flex items-center gap-1.5 flex-wrap">
+            <button onclick="selectAllDetectedRows()"
+                class="px-2.5 py-1 bg-teal-900/60 hover:bg-teal-800 text-teal-300 border border-teal-600/50 rounded-lg text-xs font-bold flex items-center gap-1 transition-all">
+                <i class="fa-solid fa-check-double text-teal-400"></i> Chọn Tất Cả Hàng (${totalRowsCount})
+            </button>
+            <button onclick="deselectAllDetectedRows()"
+                class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-slate-400 rounded-lg text-xs font-semibold">
+                Bỏ Chọn
+            </button>
+        </div>
+        <div class="text-amber-300 font-bold text-xs">
+            Đã chọn: <span class="text-teal-400 font-black text-sm">${selectedCount}</span> / ${totalRowsCount} hàng
+        </div>
+    </div>
+    <div class="space-y-1.5 max-h-[160px] overflow-y-auto pr-1">
+    `;
+
     autoDetectState.detectedRows.forEach((row, idx) => {
-        const isSelected = (idx === autoDetectState.selectedRowIdx);
+        const isCurrentView = (idx === autoDetectState.selectedRowIdx);
+        const isChecked = selectedSet.has(idx);
+
         const statusBadge = row.isObscured 
-            ? `<span class="px-2 py-0.5 rounded bg-red-950/80 text-red-400 border border-red-800 text-[10px] font-bold"><i class="fa-solid fa-triangle-exclamation"></i> Bị che khuất</span>`
-            : `<span class="px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-300 border border-emerald-700 text-[10px] font-bold"><i class="fa-solid fa-circle-check"></i> Hoàn chỉnh 100%</span>`;
+            ? `<span class="px-2 py-0.5 rounded bg-amber-950/70 text-amber-300 border border-amber-700 text-[10px] font-bold"><i class="fa-solid fa-scissors"></i> Mép cuộn (Cắt Tốt)</span>`
+            : `<span class="px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-300 border border-emerald-700 text-[10px] font-bold"><i class="fa-solid fa-circle-check"></i> Chuẩn 100%</span>`;
 
         html += `
-        <div onclick="selectDetectedRow(${idx})" class="p-2 rounded-xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${
-            isSelected 
-                ? 'bg-purple-950/60 border-purple-500 shadow-md shadow-purple-900/30' 
+        <div onclick="selectDetectedRow(${idx}, true)" class="p-2 rounded-xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${
+            isChecked 
+                ? 'bg-teal-950/40 border-teal-500/70 shadow-sm' 
                 : 'bg-slate-900/60 border-slate-800 hover:border-slate-700'
-        }">
+        } ${isCurrentView ? 'ring-2 ring-purple-500' : ''}">
             <div class="flex items-center gap-2.5">
-                <div class="w-7 h-7 rounded-lg flex items-center justify-center font-bold text-xs ${isSelected ? 'bg-purple-600 text-white' : 'bg-slate-800 text-slate-300'}">
+                <input type="checkbox" ${isChecked ? 'checked' : ''}
+                       onclick="event.stopPropagation()"
+                       onchange="toggleRowSelection(${idx}, this.checked, event)"
+                       class="w-4 h-4 rounded bg-slate-950 border-slate-700 text-teal-500 focus:ring-0 cursor-pointer">
+                <div class="w-7 h-7 rounded-lg flex items-center justify-center font-bold text-xs ${isChecked ? 'bg-teal-600 text-slate-950 font-black' : 'bg-slate-800 text-slate-400'}">
                     #${row.index}
                 </div>
                 <div>
-                    <div class="font-bold text-xs flex items-center gap-2 ${isSelected ? 'text-purple-200' : 'text-slate-200'}">
+                    <div class="font-bold text-xs flex items-center gap-2 ${isChecked ? 'text-teal-200' : 'text-slate-300'}">
                         ${row.name}
                         ${statusBadge}
                     </div>
-                    <div class="text-[11px] text-slate-400">${row.reason}</div>
+                    <div class="text-[10px] text-slate-400">${row.reason}</div>
                 </div>
             </div>
             <div>
-                <button class="px-2.5 py-1 text-xs rounded-lg font-bold transition-all ${isSelected ? 'bg-amber-500 text-black shadow' : 'bg-slate-800 text-slate-400 hover:text-white'}">
-                    ${isSelected ? '<i class="fa-solid fa-check"></i> Đang Chọn' : 'Chọn Hàng Này'}
+                <button onclick="event.stopPropagation(); toggleRowSelection(${idx}, ${!isChecked}, event)"
+                        class="px-2.5 py-1 text-xs rounded-lg font-bold transition-all ${isChecked ? 'bg-teal-600 text-slate-950 shadow' : 'bg-slate-800 text-slate-400 hover:text-white'}">
+                    ${isChecked ? '<i class="fa-solid fa-check"></i> Đã Chọn' : 'Chọn Hàng'}
                 </button>
             </div>
         </div>
         `;
     });
 
+    html += `</div>`;
     infoContainer.innerHTML = html;
 }
 
-function selectDetectedRow(rowIdx) {
+function selectDetectedRow(rowIdx, shouldUpdateUI = true) {
     if (rowIdx < 0 || rowIdx >= autoDetectState.detectedRows.length) return;
     autoDetectState.selectedRowIdx = rowIdx;
 
@@ -810,20 +863,85 @@ function renderAutoDetectCanvas() {
  */
 function applyAutoDetectedSkins() {
     const img = autoDetectState.img;
-    const cards = autoDetectState.currentCards;
+    const activeItem = autoDetectState.batchImages[autoDetectState.activeBatchIndex];
+    let cardsToCrop = [];
 
-    if (!img || !cards || cards.length === 0) {
-        showToast("Không có thẻ skin nào được chọn để ghép!");
+    // Thu thập thẻ từ TẤT CẢ các hàng được tick chọn
+    if (activeItem && activeItem.selectedRowsSet && activeItem.selectedRowsSet.size > 0 && activeItem.rawRows && activeItem.colBands) {
+        const sortedRowIdxs = Array.from(activeItem.selectedRowsSet).sort((a, b) => a - b);
+        sortedRowIdxs.forEach(rIdx => {
+            const row = activeItem.rawRows[rIdx];
+            if (!row) return;
+            activeItem.colBands.forEach((col, cIdx) => {
+                const cardW = col.end - col.start;
+                const cardH = row.bottom - row.top;
+                const calculatedSkinId = rIdx * 6 + cIdx + 1;
+                cardsToCrop.push({
+                    x: col.start,
+                    y: row.top,
+                    width: cardW,
+                    height: cardH,
+                    skinId: calculatedSkinId,
+                    badge: `Hàng #${rIdx + 1} - Cột #${cIdx + 1}`
+                });
+            });
+        });
+    } else {
+        const rIdx = autoDetectState.selectedRowIdx || 0;
+        cardsToCrop = (autoDetectState.currentCards || []).map((c, idx) => ({
+            ...c,
+            skinId: c.skinId || (rIdx * 6 + idx + 1)
+        }));
+    }
+
+    if (!img || !cardsToCrop || cardsToCrop.length === 0) {
+        showToast("Không có hàng hoặc thẻ skin nào được chọn để ghép!");
         return;
     }
 
-    const totalCards = cards.length;
+    // Nhận diện Skin ID chuẩn xác bằng hình ảnh thông qua 565 visual signatures
+    cardsToCrop.forEach(card => {
+        if (typeof identifySkinFromImage === 'function') {
+            const match = identifySkinFromImage(img, card);
+            if (match && match.skinId) {
+                card.skinId = match.skinId;
+            }
+        }
+    });
+
+    // ── LỌC THEO TIER TỪ DỮ LIỆU EXCEL ──
+    const minTierEl = document.getElementById('selDetectMinTier');
+    const minTier = minTierEl ? minTierEl.value : 'ALL';
+
+    if (minTier && minTier !== 'ALL' && typeof isSkinEligibleForTier === 'function') {
+        const originalCount = cardsToCrop.length;
+        cardsToCrop = cardsToCrop.filter((card) => isSkinEligibleForTier(card.skinId, minTier));
+        if (cardsToCrop.length < originalCount) {
+            showToast(`🎯 Đã lọc ra ${cardsToCrop.length} skin đạt từ Bậc ${minTier} trở lên (loại ${originalCount - cardsToCrop.length} skin bậc thấp hơn)`);
+        }
+    }
+
+    // Tự động sắp xếp thẻ: Ưu tiên Bậc (SSS > SS...) -> Priority cao nhất -> Giá thu mua
+    const chkSortOnCrop = document.getElementById('chkAutoSortOnCrop');
+    if (chkSortOnCrop && chkSortOnCrop.checked && typeof compareSkinPrecedence === 'function') {
+        cardsToCrop.sort((cA, cB) => {
+            const infoA = typeof getSkinDataById === 'function' ? getSkinDataById(cA.skinId) : null;
+            const infoB = typeof getSkinDataById === 'function' ? getSkinDataById(cB.skinId) : null;
+            return compareSkinPrecedence(infoA, infoB);
+        });
+    }
+
+    const totalCards = cardsToCrop.length;
     let currentSlotSearch = autoDetectState.targetStartSlotIndex;
+    if (typeof isSkinSlot === 'function' && slotsData[currentSlotSearch] && !isSkinSlot(slotsData[currentSlotSearch])) {
+        const firstValid = findNextEmptySlotIndex(currentSlotSearch);
+        if (firstValid !== -1) currentSlotSearch = firstValid;
+    }
 
     let countEmpty = 0;
-    let checkIdx = Math.max(1, currentSlotSearch);
+    let checkIdx = Math.max(0, currentSlotSearch);
     while (checkIdx < slotsData.length) {
-        if (slotsData[checkIdx] && slotsData[checkIdx].img === null) {
+        if (slotsData[checkIdx] && slotsData[checkIdx].img === null && (typeof isSkinSlot === 'function' ? isSkinSlot(slotsData[checkIdx]) : true)) {
             countEmpty++;
         }
         checkIdx++;
@@ -839,7 +957,7 @@ function applyAutoDetectedSkins() {
     }
 
     const targetSlotIndices = [];
-    currentSlotSearch = autoDetectState.targetStartSlotIndex;
+    currentSlotSearch = Math.max(0, currentSlotSearch);
 
     for (let i = 0; i < totalCards; i++) {
         const emptySlotIdx = findNextEmptySlotIndex(currentSlotSearch);
@@ -856,7 +974,7 @@ function applyAutoDetectedSkins() {
     const actualCount = targetSlotIndices.length;
     let loadedCount = 0;
 
-    cards.slice(0, actualCount).forEach((card, idx) => {
+    cardsToCrop.slice(0, actualCount).forEach((card, idx) => {
         const targetSlotIdx = targetSlotIndices[idx];
 
         const offCanvas = document.createElement('canvas');
@@ -878,6 +996,7 @@ function applyAutoDetectedSkins() {
             slotsData[targetSlotIdx].scale = 1;
             slotsData[targetSlotIdx].offsetX = 0;
             slotsData[targetSlotIdx].offsetY = 0;
+            slotsData[targetSlotIdx].skinId = card.skinId;
 
             loadedCount++;
             if (loadedCount === actualCount) {
@@ -894,7 +1013,13 @@ function applyAutoDetectedSkins() {
 
                 closeAutoDetectModal();
                 if (window.saveHistoryState) saveHistoryState();
-                showToast(`🎉 Đã cắt chuẩn xác theo khung và lấp ${loadedCount} skin vào Slot #${targetSlotIndices[0]} -> #${lastIdx}!`);
+
+                const chkSort = document.getElementById('chkAutoSortOnCrop');
+                if (chkSort && chkSort.checked && typeof autoSortBannerSlotsByValue === 'function') {
+                    autoSortBannerSlotsByValue();
+                } else {
+                    showToast(`🎉 Đã cắt chuẩn xác theo khung và lấp ${loadedCount} skin vào Slot #${targetSlotIndices[0]} -> #${lastIdx}!`);
+                }
             }
         };
         croppedImg.src = dataUrl;
@@ -912,30 +1037,75 @@ function applyAllBatchAutoDetectImages() {
         return;
     }
 
+    const minTierEl = document.getElementById('selDetectMinTier');
+    const minTier = minTierEl ? minTierEl.value : 'ALL';
+
     const allCrops = [];
     batch.forEach((itm) => {
-        if (itm.cards && itm.cards.length && itm.img) {
-            itm.cards.forEach((card) => {
-                allCrops.push({
-                    img: itm.img,
-                    card: card
+        if (!itm.img) return;
+        let itmCards = [];
+        if (itm.selectedRowsSet && itm.selectedRowsSet.size > 0 && itm.rawRows && itm.colBands) {
+            const sortedRowIdxs = Array.from(itm.selectedRowsSet).sort((a, b) => a - b);
+            sortedRowIdxs.forEach(rIdx => {
+                const row = itm.rawRows[rIdx];
+                if (!row) return;
+                itm.colBands.forEach((col, cIdx) => {
+                    itmCards.push({
+                        x: col.start,
+                        y: row.top,
+                        width: col.end - col.start,
+                        height: row.bottom - row.top,
+                        skinId: rIdx * 6 + cIdx + 1
+                    });
                 });
             });
+        } else if (itm.cards && itm.cards.length) {
+            itmCards = itm.cards.map((c, idx) => ({ ...c, skinId: c.skinId || (idx + 1) }));
         }
+
+        itmCards.forEach((card, cIdx) => {
+            if (typeof identifySkinFromImage === 'function') {
+                const match = identifySkinFromImage(itm.img, card);
+                if (match && match.skinId) {
+                    card.skinId = match.skinId;
+                }
+            }
+            if (minTier && minTier !== 'ALL' && typeof isSkinEligibleForTier === 'function') {
+                if (!isSkinEligibleForTier(card.skinId || (cIdx + 1), minTier)) return;
+            }
+            allCrops.push({
+                img: itm.img,
+                card: card
+            });
+        });
     });
 
     if (!allCrops.length) {
-        showToast("Không tìm thấy thẻ skin nào để ghép!");
+        showToast("Không tìm thấy thẻ skin nào đạt cấp bậc đã chọn!");
         return;
+    }
+
+    // Tự động sắp xếp: Ưu tiên Bậc (SSS > SS...) -> Priority cao nhất -> Giá thu mua
+    const chkSortOnCrop = document.getElementById('chkAutoSortOnCrop');
+    if (chkSortOnCrop && chkSortOnCrop.checked && typeof compareSkinPrecedence === 'function') {
+        allCrops.sort((a, b) => {
+            const infoA = typeof getSkinDataById === 'function' ? getSkinDataById(a.card.skinId) : null;
+            const infoB = typeof getSkinDataById === 'function' ? getSkinDataById(b.card.skinId) : null;
+            return compareSkinPrecedence(infoA, infoB);
+        });
     }
 
     const totalCards = allCrops.length;
     let currentSlotSearch = autoDetectState.targetStartSlotIndex;
+    if (typeof isSkinSlot === 'function' && slotsData[currentSlotSearch] && !isSkinSlot(slotsData[currentSlotSearch])) {
+        const firstValid = findNextEmptySlotIndex(currentSlotSearch);
+        if (firstValid !== -1) currentSlotSearch = firstValid;
+    }
 
     let countEmpty = 0;
-    let checkIdx = Math.max(1, currentSlotSearch);
+    let checkIdx = Math.max(0, currentSlotSearch);
     while (checkIdx < slotsData.length) {
-        if (slotsData[checkIdx] && slotsData[checkIdx].img === null) {
+        if (slotsData[checkIdx] && slotsData[checkIdx].img === null && (typeof isSkinSlot === 'function' ? isSkinSlot(slotsData[checkIdx]) : true)) {
             countEmpty++;
         }
         checkIdx++;
@@ -951,7 +1121,7 @@ function applyAllBatchAutoDetectImages() {
     }
 
     const targetSlotIndices = [];
-    currentSlotSearch = autoDetectState.targetStartSlotIndex;
+    currentSlotSearch = Math.max(0, currentSlotSearch);
 
     for (let i = 0; i < totalCards; i++) {
         const emptySlotIdx = findNextEmptySlotIndex(currentSlotSearch);
@@ -994,6 +1164,7 @@ function applyAllBatchAutoDetectImages() {
             slotsData[targetSlotIdx].scale = 1;
             slotsData[targetSlotIdx].offsetX = 0;
             slotsData[targetSlotIdx].offsetY = 0;
+            slotsData[targetSlotIdx].skinId = card.skinId || (idx + 1);
 
             loadedCount++;
             if (loadedCount === actualCount) {
@@ -1010,7 +1181,13 @@ function applyAllBatchAutoDetectImages() {
 
                 closeAutoDetectModal();
                 if (window.saveHistoryState) saveHistoryState();
-                showToast(`🎉 Tuyệt vời! Đã cắt & ghép thành công ${loadedCount} skin từ ${batch.length} ảnh vào banner!`);
+
+                const chkSort = document.getElementById('chkAutoSortOnCrop');
+                if (chkSort && chkSort.checked && typeof autoSortBannerSlotsByValue === 'function') {
+                    autoSortBannerSlotsByValue();
+                } else {
+                    showToast(`🎉 Tuyệt vời! Đã cắt & ghép thành công ${loadedCount} skin từ ${batch.length} ảnh vào banner!`);
+                }
             }
         };
         croppedImg.src = dataUrl;

@@ -13,6 +13,7 @@
         rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -158,8 +159,13 @@
                     title="Mở file dự án (.json) đã lưu trước đó">
                     <i class="fa-solid fa-folder-open text-amber-400"></i> Mở Project
                 </button>
-                <input type="file" id="projectFileInput" accept=".json" class="hidden"
-                    onchange="handleProjectFileImport(event)">
+                <button onclick="openSkinDatabaseModal()"
+                    class="px-3 py-2 rounded-lg bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:brightness-110 text-slate-950 font-black text-xs transition-all flex items-center gap-1.5 shadow-lg shadow-amber-500/20"
+                    title="Mở Bảng Dữ Liệu 565 Skin & Cấu Hình Định Giá / Độ Ưu Tiên">
+                    <i class="fa-solid fa-coins text-slate-950"></i> Bảng Data & Định Giá Skin
+                </button>
+                <input type="file" id="skinDbFileInput" accept=".json" class="hidden"
+                    onchange="handleSkinDatabaseImport(event)">
                 <div class="h-5 w-px bg-slate-800 mx-1 hidden sm:block"></div>
                 <div class="flex items-center gap-1.5 bg-slate-900 border border-slate-700 rounded-lg p-1">
                     <select id="selDownloadScale"
@@ -243,6 +249,51 @@
                     </div>
                 </div>
 
+                <!-- ═══════════ BẢNG ĐỊNH GIÁ & GIÁ TRỊ ACC ═══════════ -->
+                <div
+                    class="glass-panel rounded-2xl p-4 border border-amber-500/30 bg-gradient-to-b from-amber-950/20 to-slate-900/60 shadow-lg">
+                    <div class="section-title text-amber-300">
+                        <i class="fa-solid fa-calculator text-amber-400"></i> Định Giá & Giá Trị Acc
+                    </div>
+
+                    <div class="bg-slate-950/90 border border-slate-800 rounded-xl p-3 mb-3 space-y-2">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="text-slate-400">Skin Có Trên Banner:</span>
+                            <span id="valWidgetSkinCount" class="font-bold text-teal-400">0 skin</span>
+                        </div>
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="text-slate-400">Tổng Giá Trị Skin (Thu Mua):</span>
+                            <span id="valWidgetTotalSkinPrice" class="font-bold text-amber-300">0 ₫</span>
+                        </div>
+                        <div class="pt-2 border-t border-slate-800">
+                            <span id="valWidgetEstAccPrice" class="hidden">0 ₫</span>
+                            <p class="text-[11px] text-amber-200/70 italic leading-relaxed">
+                                * Giá trị acc dự đoán chỉ mang tính chất tham khảo , có thể biến động tùy theo tình hình của acc và nhu cầu thị trường
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <button onclick="autoSortBannerSlotsByValue()"
+                            class="w-full py-2.5 px-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:brightness-110 text-slate-950 font-black text-xs rounded-xl shadow-md flex items-center justify-center gap-2 transition-all"
+                            title="Tự động lọc skin bậc SSS (Priority 1.. ưu tiên nhất) ➜ Bậc SS (Priority 1.. ưu tiên nhất) và đẩy lên các ô VIP 1..6 và đầu lưới">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> ⚡ Tự Lọc & Đẩy Skin VIP Lên Đầu
+                        </button>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="applyValuationToBannerText()"
+                                class="py-1.5 px-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-emerald-300 text-[11px] font-bold rounded-lg flex items-center justify-center gap-1 transition-all"
+                                title="Đưa giá trị thu mua này vào ô giá / badge trên banner">
+                                <i class="fa-solid fa-tag"></i> Đưa Giá Lên Banner
+                            </button>
+                            <button onclick="openSkinDatabaseModal()"
+                                class="py-1.5 px-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-amber-300 text-[11px] font-bold rounded-lg flex items-center justify-center gap-1 transition-all"
+                                title="Xem và chỉnh sửa giá thu mua, độ ưu tiên của 565 skin">
+                                <i class="fa-solid fa-table-list"></i> Chỉnh Bảng Data
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- 2. FRAME SYSTEM -->
                 <div class="glass-panel rounded-2xl p-4">
                     <div class="section-title"><i class="fa-solid fa-border-all text-cyan-400"></i> 2. Hệ Thống Khung
@@ -284,7 +335,8 @@
                         <div class="flex items-center justify-between mb-2">
                             <span class="text-xs font-bold text-slate-200">Khung Lưới Skin</span>
                             <label class="tgl-switch">
-                                <input type="checkbox" id="chkFrameGridSkins" checked onchange="onFrameSettingsChange()">
+                                <input type="checkbox" id="chkFrameGridSkins" checked
+                                    onchange="onFrameSettingsChange()">
                                 <div class="tgl-track"></div>
                                 <div class="tgl-thumb"></div>
                             </label>
@@ -308,7 +360,8 @@
                                     class="w-full h-8 rounded border border-slate-700 cursor-pointer bg-slate-900">
                             </div>
                         </div>
-                        <div class="grid grid-cols-2 gap-2 mb-2.5 bg-slate-950/70 border border-slate-800 p-2 rounded-lg">
+                        <div
+                            class="grid grid-cols-2 gap-2 mb-2.5 bg-slate-950/70 border border-slate-800 p-2 rounded-lg">
                             <div>
                                 <div class="flex justify-between items-center text-slate-400 mb-1">
                                     <label class="text-[11px] block">Độ Dày Viền:</label>
@@ -340,7 +393,8 @@
                 <!-- 2.5 HUY HIỆU VIP (TÙY CHỌN BẬC VIP 1 - 10 & DI CHUYỂN TỰ DO) -->
                 <div class="glass-panel rounded-2xl p-4">
                     <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
-                        <div class="section-title mb-0"><i class="fa-solid fa-crown text-amber-400"></i> 2.5. Huy Hiệu VIP (Di Chuyển Tự Do)</div>
+                        <div class="section-title mb-0"><i class="fa-solid fa-crown text-amber-400"></i> 2.5. Huy Hiệu
+                            VIP (Di Chuyển Tự Do)</div>
                         <label class="tgl-switch" title="Bật / Tắt hiển thị huy hiệu VIP trên Banner">
                             <input type="checkbox" id="chkShowVipBadge" checked onchange="onBadgeSettingsChange()">
                             <div class="tgl-track"></div>
@@ -352,12 +406,16 @@
                         <!-- Chọn Bậc VIP -->
                         <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3 space-y-2.5">
                             <div class="flex items-center justify-between">
-                                <label class="text-[11px] text-slate-300 font-semibold block">Bậc VIP (Huy Hiệu):</label>
-                                <span id="valVipTierBadge" class="text-amber-400 font-extrabold text-xs">VIP 8 (Hoàng Kim)</span>
+                                <label class="text-[11px] text-slate-300 font-semibold block">Bậc VIP (Huy
+                                    Hiệu):</label>
+                                <span id="valVipTierBadge" class="text-amber-400 font-extrabold text-xs">VIP 8 (Hoàng
+                                    Kim)</span>
                             </div>
                             <div class="flex items-center gap-2">
-                                <div class="w-11 h-11 rounded-lg bg-slate-950 border border-amber-500/40 flex items-center justify-center p-1 shrink-0 overflow-hidden shadow">
-                                    <img id="vipBadgePreviewImg" src="vip_badge/HuyHieu_VIP_08_Transparent.png" class="w-full h-full object-contain">
+                                <div
+                                    class="w-11 h-11 rounded-lg bg-slate-950 border border-amber-500/40 flex items-center justify-center p-1 shrink-0 overflow-hidden shadow">
+                                    <img id="vipBadgePreviewImg" src="vip_badge/HuyHieu_VIP_08_Transparent.png"
+                                        class="w-full h-full object-contain">
                                 </div>
                                 <select id="selVipTier" onchange="onVipTierChange(this.value)"
                                     class="flex-1 bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-2 text-xs text-amber-300 font-bold focus:outline-none cursor-pointer">
@@ -381,7 +439,8 @@
                                     <span id="valVipBadgeSize" class="text-amber-300 font-bold text-xs">65px</span>
                                 </div>
                                 <input type="range" id="rngVipBadgeSize" min="30" max="160" step="2" value="65"
-                                    oninput="onVipBadgeSizeChange(this.value)" class="w-full accent-amber-500 cursor-pointer">
+                                    oninput="onVipBadgeSizeChange(this.value)"
+                                    class="w-full accent-amber-500 cursor-pointer">
                             </div>
 
                             <!-- Tọa độ X (Ngang) -->
@@ -391,7 +450,8 @@
                                     <span id="valVipBadgeX" class="text-cyan-300 font-bold text-xs">50% (Giữa)</span>
                                 </div>
                                 <input type="range" id="rngVipBadgeX" min="0" max="100" step="0.5" value="50"
-                                    oninput="onVipBadgeXChange(this.value)" class="w-full accent-cyan-500 cursor-pointer">
+                                    oninput="onVipBadgeXChange(this.value)"
+                                    class="w-full accent-cyan-500 cursor-pointer">
                             </div>
 
                             <!-- Tọa độ Y (Dọc) -->
@@ -401,22 +461,28 @@
                                     <span id="valVipBadgeY" class="text-purple-300 font-bold text-xs">4.2%</span>
                                 </div>
                                 <input type="range" id="rngVipBadgeY" min="0" max="100" step="0.5" value="4.2"
-                                    oninput="onVipBadgeYChange(this.value)" class="w-full accent-purple-500 cursor-pointer">
+                                    oninput="onVipBadgeYChange(this.value)"
+                                    class="w-full accent-purple-500 cursor-pointer">
                             </div>
 
                             <div class="flex items-center gap-2 pt-1">
-                                <button type="button" onclick="centerVipBadge()" class="flex-1 py-1.5 px-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 border border-slate-700 transition-all">
+                                <button type="button" onclick="centerVipBadge()"
+                                    class="flex-1 py-1.5 px-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 border border-slate-700 transition-all">
                                     <i class="fa-solid fa-arrows-to-dot text-amber-400"></i> Căn Giữa Banner
                                 </button>
-                                <button type="button" onclick="resetVipBadgePosition()" class="py-1.5 px-2.5 bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white rounded-lg text-xs font-semibold border border-slate-700 transition-all" title="Về vị trí mặc định">
+                                <button type="button" onclick="resetVipBadgePosition()"
+                                    class="py-1.5 px-2.5 bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white rounded-lg text-xs font-semibold border border-slate-700 transition-all"
+                                    title="Về vị trí mặc định">
                                     <i class="fa-solid fa-rotate-left"></i>
                                 </button>
                             </div>
                         </div>
 
-                        <div class="text-[11px] text-slate-400 bg-slate-950/80 border border-slate-800/80 p-2.5 rounded-xl flex items-start gap-2">
+                        <div
+                            class="text-[11px] text-slate-400 bg-slate-950/80 border border-slate-800/80 p-2.5 rounded-xl flex items-start gap-2">
                             <i class="fa-solid fa-hand-pointer text-amber-400 mt-0.5 shrink-0"></i>
-                            <span>Bạn có thể <strong>click chuột trực tiếp vào Huy Hiệu VIP trên Canvas</strong> để <strong>kéo rê tự do</strong> tới bất kỳ vị trí nào trên banner!</span>
+                            <span>Bạn có thể <strong>click chuột trực tiếp vào Huy Hiệu VIP trên Canvas</strong> để
+                                <strong>kéo rê tự do</strong> tới bất kỳ vị trí nào trên banner!</span>
                         </div>
                     </div>
                 </div>
@@ -440,7 +506,7 @@
                             <button onclick="openMergeSlotsModal()"
                                 class="text-xs bg-indigo-600 hover:bg-indigo-500 text-white px-2.5 py-1.5 rounded-lg font-bold flex items-center gap-1 shadow transition-all"
                                 title="Gộp nhóm ô skin thành ô lớn tùy chỉnh"><i
-                                     class="fa-solid fa-table-cells-large"></i> Gộp Ô Skin</button><button
+                                    class="fa-solid fa-table-cells-large"></i> Gộp Ô Skin</button><button
                                 onclick="openBatchGridModal()"
                                 class="text-xs bg-amber-600 hover:bg-amber-500 text-white px-2.5 py-1.5 rounded-lg font-bold flex items-center gap-1">
                                 <i class="fa-solid fa-scissors"></i> Cắt Lưới
@@ -491,7 +557,10 @@
                     <div
                         class="text-[11px] text-slate-400 mt-2.5 pt-2 border-t border-slate-800/80 flex items-center gap-1.5 flex-wrap">
                         <i class="fa-solid fa-hand-pointer text-cyan-400"></i>
-                        <span>Thêm <strong class="text-amber-300">không giới hạn số lượng</strong>! Bạn có thể <strong class="text-cyan-300">kéo thả nhiều file ảnh vào Canvas</strong> hoặc nhấn nút <strong class="text-cyan-400">+ Chèn Ảnh</strong>, kéo rê trực tiếp trên Canvas và bật <strong class="text-amber-400">Khung viền / Bo góc</strong> tùy thích!</span>
+                        <span>Thêm <strong class="text-amber-300">không giới hạn số lượng</strong>! Bạn có thể <strong
+                                class="text-cyan-300">kéo thả nhiều file ảnh vào Canvas</strong> hoặc nhấn nút <strong
+                                class="text-cyan-400">+ Chèn Ảnh</strong>, kéo rê trực tiếp trên Canvas và bật <strong
+                                class="text-amber-400">Khung viền / Bo góc</strong> tùy thích!</span>
                     </div>
                 </div>
 
@@ -565,11 +634,15 @@
                         <i class="fa-solid fa-crop-simple text-purple-400"></i> Điều Chỉnh Ảnh Slot
                     </h3>
                     <div class="flex items-center bg-slate-950 border border-slate-700 rounded-lg p-0.5 ml-2 shadow-sm">
-                        <button onclick="cropModalMoveSlot(-1)" class="px-2 py-0.5 text-slate-300 hover:text-amber-300 hover:bg-slate-800 rounded text-xs font-semibold flex items-center gap-1 transition-all" title="Chen qua ô trước">
+                        <button onclick="cropModalMoveSlot(-1)"
+                            class="px-2 py-0.5 text-slate-300 hover:text-amber-300 hover:bg-slate-800 rounded text-xs font-semibold flex items-center gap-1 transition-all"
+                            title="Chen qua ô trước">
                             <i class="fa-solid fa-arrow-left text-[10px]"></i> Trước
                         </button>
                         <div class="w-[1px] h-3 bg-slate-800 mx-0.5"></div>
-                        <button onclick="cropModalMoveSlot(1)" class="px-2 py-0.5 text-slate-300 hover:text-amber-300 hover:bg-slate-800 rounded text-xs font-semibold flex items-center gap-1 transition-all" title="Đổi qua ô tiếp theo">
+                        <button onclick="cropModalMoveSlot(1)"
+                            class="px-2 py-0.5 text-slate-300 hover:text-amber-300 hover:bg-slate-800 rounded text-xs font-semibold flex items-center gap-1 transition-all"
+                            title="Đổi qua ô tiếp theo">
                             Tiếp <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </button>
                     </div>
@@ -646,7 +719,8 @@
                     </button>
                     <span class="text-xs text-slate-400">Mẫu:</span>
                     <button onclick="setGridPreset(4,1)"
-                        class="px-2 py-1 bg-slate-800 border border-slate-700 text-teal-300 text-xs rounded font-semibold hover:bg-purple-900/50">1×4 (Chuẩn)</button>
+                        class="px-2 py-1 bg-slate-800 border border-slate-700 text-teal-300 text-xs rounded font-semibold hover:bg-purple-900/50">1×4
+                        (Chuẩn)</button>
                     <button onclick="setGridPreset(6,1)"
                         class="px-2 py-1 bg-slate-800 border border-slate-700 text-amber-300 text-xs rounded font-semibold hover:bg-purple-900/50">1×6</button>
                     <button onclick="setGridPreset(5,1)"
@@ -747,18 +821,20 @@
         class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div
             class="glass-panel max-w-3xl w-full rounded-2xl p-5 border border-teal-500/40 shadow-2xl flex flex-col gap-3.5 max-h-[94vh] overflow-y-auto">
-            
+
             <!-- Header -->
             <div class="flex justify-between items-center border-b border-slate-800 pb-2.5">
                 <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-teal-500 to-cyan-400 flex items-center justify-center text-slate-950 font-bold shadow">
+                    <div
+                        class="w-8 h-8 rounded-lg bg-gradient-to-tr from-teal-500 to-cyan-400 flex items-center justify-center text-slate-950 font-bold shadow">
                         <i class="fa-solid fa-wand-magic-sparkles"></i>
                     </div>
                     <div>
                         <h3 class="font-bold text-teal-300 text-base flex items-center gap-2">
                             Tự Động Nhận Diện Hàng Skin (Không Bị Che Khuất)
                         </h3>
-                        <p class="text-[11px] text-slate-400">Tự động phát hiện hàng skin nguyên vẹn, loại bỏ hàng bị che khuất & cắt ghép chính xác</p>
+                        <p class="text-[11px] text-slate-400">Tự động phát hiện hàng skin nguyên vẹn, loại bỏ hàng bị
+                            che khuất & cắt ghép chính xác</p>
                     </div>
                 </div>
                 <button onclick="closeAutoDetectModal()" class="text-slate-400 hover:text-white text-lg">
@@ -767,12 +843,14 @@
             </div>
 
             <!-- Upload & Actions Toolbar -->
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-2.5 bg-slate-900/90 border border-slate-800 p-3 rounded-xl">
+            <div
+                class="flex flex-col sm:flex-row items-center justify-between gap-2.5 bg-slate-900/90 border border-slate-800 p-3 rounded-xl">
                 <div class="flex items-center gap-2 flex-wrap">
                     <label
                         class="px-3.5 py-2 bg-gradient-to-r from-teal-600 to-emerald-600 hover:brightness-110 text-white text-xs font-bold rounded-lg cursor-pointer flex items-center gap-2 shadow transition-all">
                         <i class="fa-solid fa-cloud-arrow-up"></i> Chọn Ảnh Chụp Màn Hình (Ctrl/Shift để chọn nhiều ảnh)
-                        <input type="file" multiple accept="image/*" class="hidden" onchange="handleAutoDetectUpload(event)">
+                        <input type="file" multiple accept="image/*" class="hidden"
+                            onchange="handleAutoDetectUpload(event)">
                     </label>
                     <button onclick="pasteToAutoDetect()"
                         class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1.5 shadow transition-all"
@@ -789,15 +867,18 @@
             <div id="batchImagesContainer" class="bg-slate-950 border border-slate-800 p-2 rounded-xl text-xs hidden">
                 <div class="flex items-center justify-between mb-1.5 px-1">
                     <span class="text-slate-400 font-semibold flex items-center gap-1.5">
-                        <i class="fa-solid fa-photo-film text-teal-400"></i> Danh sách ảnh đã chọn (<span id="batchImageCount" class="text-teal-300 font-bold">0</span> ảnh):
+                        <i class="fa-solid fa-photo-film text-teal-400"></i> Danh sách ảnh đã chọn (<span
+                            id="batchImageCount" class="text-teal-300 font-bold">0</span> ảnh):
                     </span>
-                    <button onclick="clearAllBatchImages()" class="text-[11px] text-red-400 hover:text-red-300 underline font-semibold">Xóa Hết</button>
+                    <button onclick="clearAllBatchImages()"
+                        class="text-[11px] text-red-400 hover:text-red-300 underline font-semibold">Xóa Hết</button>
                 </div>
                 <div id="batchImagesThumbs" class="flex items-center gap-2 overflow-x-auto pb-1 max-w-full"></div>
             </div>
 
             <!-- Slot Target -->
-            <div class="flex items-center justify-between bg-slate-950 border border-slate-800 px-3.5 py-2 rounded-xl text-xs">
+            <div
+                class="flex items-center justify-between bg-slate-950 border border-slate-800 px-3.5 py-2 rounded-xl text-xs">
                 <div class="flex items-center gap-2">
                     <i class="fa-solid fa-bullseye text-teal-400"></i>
                     <span class="text-slate-300 font-semibold">Bắt đầu ghép vào:</span>
@@ -807,7 +888,8 @@
                     <input type="number" id="autoDetectTargetStart" value="1" min="1"
                         onchange="autoDetectState.targetStartSlotIndex = Math.max(1, parseInt(this.value) || 1)"
                         class="w-16 bg-slate-900 border border-slate-700 rounded px-2 py-1 text-amber-300 font-bold text-center">
-                    <button onclick="if(typeof findNextEmptySlotIndex==='function'){const e=findNextEmptySlotIndex(1);if(e!==-1){autoDetectState.targetStartSlotIndex=e;document.getElementById('autoDetectTargetStart').value=e;showToast('Đã chọn Slot #'+e);}}"
+                    <button
+                        onclick="if(typeof findNextEmptySlotIndex==='function'){const e=findNextEmptySlotIndex(0);if(e!==-1){autoDetectState.targetStartSlotIndex=e;document.getElementById('autoDetectTargetStart').value=e;showToast('Đã chọn Slot #'+e);}}"
                         class="text-[11px] text-teal-400 hover:text-teal-300 underline font-semibold">
                         Slot Trống Tiếp Theo
                     </button>
@@ -827,7 +909,8 @@
                         <span class="font-bold text-teal-300 flex items-center gap-1.5">
                             <i class="fa-solid fa-crop-simple text-amber-400"></i> Căn Chỉnh Khung Ô:
                         </span>
-                        <div class="flex items-center gap-1 bg-slate-950 p-0.5 rounded-lg border border-slate-800 text-[11px]">
+                        <div
+                            class="flex items-center gap-1 bg-slate-950 p-0.5 rounded-lg border border-slate-800 text-[11px]">
                             <button id="btnModeCard" onclick="setCropTargetMode('skin_card')"
                                 class="px-2.5 py-1 rounded bg-teal-600 text-white font-bold text-xs shadow"
                                 title="Cắt chuẩn vùng thẻ splash art bên trong khung">
@@ -847,51 +930,101 @@
                 </div>
                 <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 text-[11px]">
                     <!-- Move X/Y -->
-                    <div class="bg-slate-950 p-1.5 rounded-lg border border-slate-800 flex items-center justify-between">
+                    <div
+                        class="bg-slate-950 p-1.5 rounded-lg border border-slate-800 flex items-center justify-between">
                         <span class="text-slate-400">Dịch X:</span>
                         <div class="flex gap-1">
-                            <button onclick="adjustGridUniform('x', -2)" class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-white rounded font-bold">◀</button>
-                            <button onclick="adjustGridUniform('x', 2)" class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-white rounded font-bold">▶</button>
+                            <button onclick="adjustGridUniform('x', -2)"
+                                class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-white rounded font-bold">◀</button>
+                            <button onclick="adjustGridUniform('x', 2)"
+                                class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-white rounded font-bold">▶</button>
                         </div>
                     </div>
-                    <div class="bg-slate-950 p-1.5 rounded-lg border border-slate-800 flex items-center justify-between">
+                    <div
+                        class="bg-slate-950 p-1.5 rounded-lg border border-slate-800 flex items-center justify-between">
                         <span class="text-slate-400">Dịch Y:</span>
                         <div class="flex gap-1">
-                            <button onclick="adjustGridUniform('y', -2)" class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-white rounded font-bold">▲</button>
-                            <button onclick="adjustGridUniform('y', 2)" class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-white rounded font-bold">▼</button>
+                            <button onclick="adjustGridUniform('y', -2)"
+                                class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-white rounded font-bold">▲</button>
+                            <button onclick="adjustGridUniform('y', 2)"
+                                class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-white rounded font-bold">▼</button>
                         </div>
                     </div>
                     <!-- Width W -->
-                    <div class="bg-slate-950 p-1.5 rounded-lg border border-slate-800 flex items-center justify-between">
+                    <div
+                        class="bg-slate-950 p-1.5 rounded-lg border border-slate-800 flex items-center justify-between">
                         <span class="text-slate-400">Rộng (W):</span>
                         <div class="flex gap-1">
-                            <button onclick="adjustGridUniform('w', -2)" class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-white rounded font-bold">-</button>
-                            <button onclick="adjustGridUniform('w', 2)" class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-white rounded font-bold">+</button>
+                            <button onclick="adjustGridUniform('w', -2)"
+                                class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-white rounded font-bold">-</button>
+                            <button onclick="adjustGridUniform('w', 2)"
+                                class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-white rounded font-bold">+</button>
                         </div>
                     </div>
                     <!-- Height H -->
-                    <div class="bg-slate-950 p-1.5 rounded-lg border border-slate-800 flex items-center justify-between">
+                    <div
+                        class="bg-slate-950 p-1.5 rounded-lg border border-slate-800 flex items-center justify-between">
                         <span class="text-slate-400">Cao (H):</span>
                         <div class="flex gap-1">
-                            <button onclick="adjustGridUniform('h', -2)" class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-white rounded font-bold">-</button>
-                            <button onclick="adjustGridUniform('h', 2)" class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-white rounded font-bold">+</button>
+                            <button onclick="adjustGridUniform('h', -2)"
+                                class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-white rounded font-bold">-</button>
+                            <button onclick="adjustGridUniform('h', 2)"
+                                class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-white rounded font-bold">+</button>
                         </div>
                     </div>
                     <!-- Gap / Pitch -->
-                    <div class="bg-slate-950 p-1.5 rounded-lg border border-slate-800 flex items-center justify-between col-span-2 sm:col-span-1">
+                    <div
+                        class="bg-slate-950 p-1.5 rounded-lg border border-slate-800 flex items-center justify-between col-span-2 sm:col-span-1">
                         <span class="text-slate-400">Khoảng cách:</span>
                         <div class="flex gap-1">
-                            <button onclick="adjustGridUniform('pitch', -2)" class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-white rounded font-bold">-</button>
-                            <button onclick="adjustGridUniform('pitch', 2)" class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-white rounded font-bold">+</button>
+                            <button onclick="adjustGridUniform('pitch', -2)"
+                                class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-white rounded font-bold">-</button>
+                            <button onclick="adjustGridUniform('pitch', 2)"
+                                class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-white rounded font-bold">+</button>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- BỘ LỌC CẤP BẬC TIER TỪ FILE EXCEL -->
+            <div
+                class="bg-gradient-to-r from-amber-950/40 via-slate-900 to-teal-950/40 border border-amber-500/40 p-3 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-3 shadow-md">
+                <div class="flex items-center gap-2.5">
+                    <div
+                        class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-300 flex items-center justify-center text-sm font-black border border-amber-500/30">
+                        <i class="fa-solid fa-filter"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs font-bold text-amber-300 flex items-center gap-2">
+                            LỌC THEO CẤP BẬC (TIER SKIN):
+                            <span
+                                class="text-[10px] text-teal-300 bg-teal-950/80 px-2 py-0.5 rounded border border-teal-600/40 font-semibold">Theo
+                                dữ liệu Excel</span>
+                        </div>
+                        <div class="text-[11px] text-slate-400">Chỉ tự động ghép vào banner những skin đạt từ cấp bậc
+                            bạn chọn trở lên</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xs text-amber-300 font-bold whitespace-nowrap">Chỉ lấy từ bậc:</span>
+                    <select id="selDetectMinTier"
+                        class="bg-slate-950 border border-amber-500/60 text-amber-300 font-black text-xs rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer shadow">
+                        <option value="ALL">🌟 Tất Cả Cấp Bậc (Không Lọc)</option>
+                        <option value="SSS">👑 Chỉ Lấy Bậc SSS (Chí Tôn / Vô Địch)</option>
+                        <option value="SS">💎 Từ Bậc SS Trở Lên (Huyền Thoại / Legend)</option>
+                        <option value="S">🟡 Từ Bậc S Trở Lên (Sử Thi / Epic)</option>
+                        <option value="A">🟣 Từ Bậc A Trở Lên (Hiếm / Dũng Giả)</option>
+                        <option value="B">🔵 Từ Bậc B Trở Lên (Thường)</option>
+                        <option value="C">⚪ Từ Bậc C Trở Lên (Mặc Định)</option>
+                    </select>
                 </div>
             </div>
 
             <!-- Detected Rows List -->
             <div class="space-y-1.5">
                 <div class="flex items-center justify-between text-xs text-slate-400 font-semibold px-1">
-                    <span><i class="fa-solid fa-layer-group text-teal-400"></i> Các hàng phát hiện trong ảnh (chọn hàng muốn cắt):</span>
+                    <span><i class="fa-solid fa-layer-group text-teal-400"></i> Các hàng phát hiện trong ảnh (chọn hàng
+                        muốn cắt):</span>
                     <span class="text-[11px] text-emerald-400 italic">✔ Hàng xanh: Hoàn chỉnh không bị che khuất</span>
                 </div>
                 <div id="autoDetectRowsList" class="space-y-1.5 max-h-[160px] overflow-y-auto pr-1"></div>
@@ -899,10 +1032,19 @@
 
             <!-- Footer Buttons -->
             <div class="flex flex-col sm:flex-row justify-between items-center gap-2 pt-2 border-t border-slate-800">
-                <button onclick="syncToBatchGridFromAutoDetect()"
-                    class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg flex items-center gap-1.5">
-                    <i class="fa-solid fa-sliders text-amber-400"></i> Chuyển Sang Cắt Lưới Thủ Công
-                </button>
+                <div class="flex items-center gap-2 flex-wrap">
+                    <button onclick="syncToBatchGridFromAutoDetect()"
+                        class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg flex items-center gap-1.5">
+                        <i class="fa-solid fa-sliders text-amber-400"></i> Cắt Lưới Thủ Công
+                    </button>
+                    <label
+                        class="flex items-center gap-1.5 text-xs text-amber-300 font-bold cursor-pointer bg-slate-950 px-2.5 py-1.5 rounded-lg border border-amber-600/40"
+                        title="Tự động tra cứu file Excel và đẩy các skin đắt nhất lên 6 ô VIP">
+                        <input type="checkbox" id="chkAutoSortOnCrop" checked
+                            class="rounded bg-slate-900 border-slate-700 text-amber-500 focus:ring-0">
+                        <span>⚡ Tự Đẩy Skin VIP Lên Đầu</span>
+                    </label>
+                </div>
                 <div class="flex gap-2 flex-wrap justify-end">
                     <button onclick="closeAutoDetectModal()"
                         class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg">Hủy</button>
@@ -926,15 +1068,6 @@
         class="fixed bottom-5 right-5 bg-emerald-600 text-white px-4 py-2.5 rounded-xl shadow-xl text-xs font-bold flex items-center gap-2 translate-y-20 opacity-0 transition-all duration-300 z-50">
         <i class="fa-solid fa-circle-check"></i> <span id="toastMsg">Thành công</span>
     </div>
-
-    <!-- Scripts -->
-    <script src="js/templates.js"></script>
-    <script src="js/canvas.js"></script>
-    <script src="js/crop.js"></script>
-    <script src="js/gridCrop.js"></script>
-    <script src="js/autoDetectSkin.js"></script>
-    <script src="js/app.js"></script>
-
 
     <!-- ═══ MODAL: GỘP Ô SKIN & BỐ CỤC VẬT PHẨM ═══ -->
     <div id="mergeSlotsModal"
@@ -985,10 +1118,174 @@
             </div>
         </div>
     </div>
+    <!-- ═══ MODAL: BẢNG DATA & ĐỊNH GIÁ SKIN VIP ═══ -->
+    <div id="skinDatabaseModal"
+        class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-3 sm:p-5">
+        <div
+            class="glass-panel max-w-5xl w-full rounded-2xl p-5 border border-amber-500/40 shadow-2xl flex flex-col gap-3.5 max-h-[92vh] overflow-hidden">
+
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center border-b border-slate-800 pb-3 shrink-0">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 via-orange-500 to-yellow-400 flex items-center justify-center text-slate-950 text-xl font-black shadow-lg shadow-amber-500/20">
+                        <i class="fa-solid fa-coins"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-amber-300 text-lg flex items-center gap-2">
+                            Bảng Data Skin, Độ Ưu Tiên & Định Giá VIP
+                        </h3>
+                        <p class="text-[11px] text-slate-400">Quản lý toàn bộ 565 Skin Honor of Kings · Cấu hình độ ưu
+                            tiên xếp lên đầu banner & định giá account</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="saveSkinDatabase()"
+                        class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-lg flex items-center gap-1.5 shadow transition-all">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu Thay Đổi
+                    </button>
+                    <button onclick="closeSkinDatabaseModal()" class="text-slate-400 hover:text-white text-xl p-1">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div
+                class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 bg-slate-950/80 border border-slate-800/80 p-2.5 rounded-xl shrink-0 text-xs">
+                <div
+                    class="bg-slate-900/60 p-2 rounded-lg border border-slate-800/50 flex justify-between items-center">
+                    <span class="text-slate-400">Tổng Số Skin:</span>
+                    <span id="dbStatTotal" class="font-bold text-amber-400 text-sm">565</span>
+                </div>
+                <div
+                    class="bg-slate-900/60 p-2 rounded-lg border border-slate-800/50 flex justify-between items-center">
+                    <span class="text-slate-400">Đã Định Giá:</span>
+                    <span id="dbStatPriced" class="font-bold text-emerald-400 text-sm">0</span>
+                </div>
+                <div
+                    class="bg-slate-900/60 p-2 rounded-lg border border-slate-800/50 flex justify-between items-center">
+                    <span class="text-slate-400">Skin Hot VIP:</span>
+                    <span id="dbStatHot" class="font-bold text-rose-400 text-sm">0</span>
+                </div>
+                <div
+                    class="bg-slate-900/60 p-2 rounded-lg border border-slate-800/50 flex justify-between items-center">
+                    <span class="text-slate-400">Tổng Giá Trị:</span>
+                    <span id="dbStatSumPrice" class="font-black text-amber-300 text-xs truncate">0 ₫</span>
+                </div>
+            </div>
+
+            <!-- Toolbar (Search, Filters, Bulk, Export/Import) -->
+            <div
+                class="flex flex-col sm:flex-row items-center justify-between gap-2.5 bg-slate-900/90 border border-slate-800 p-2.5 rounded-xl shrink-0 text-xs">
+                <div class="flex items-center gap-2 w-full sm:w-auto flex-1 max-w-md">
+                    <div class="relative w-full">
+                        <i
+                            class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-500 text-xs pointer-events-none"></i>
+                        <input type="text" placeholder="Tìm kiếm theo ID, tên tướng, tên skin..."
+                            oninput="onSkinDbSearchChange(this.value)"
+                            class="w-full bg-slate-950 border border-slate-700 rounded-lg pl-8 pr-3 py-1.5 text-slate-200 text-xs focus:outline-none focus:border-amber-500">
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2 flex-wrap w-full sm:w-auto justify-end">
+                    <!-- Lọc Bậc -->
+                    <select onchange="onSkinDbRarityFilterChange(this.value)"
+                        class="bg-slate-950 border border-slate-700 text-amber-300 font-semibold rounded-lg px-2.5 py-1.5 text-xs focus:outline-none">
+                        <option value="ALL">🌟 Tất Cả Cấp Bậc</option>
+                        <option value="SSS">👑 Bậc SSS (Chí Tôn)</option>
+                        <option value="SS">💎 Bậc SS (Huyền Thoại)</option>
+                        <option value="S">🟡 Bậc S (Sử Thi / Epic)</option>
+                        <option value="A">🟣 Bậc A (Hiếm / Rare)</option>
+                        <option value="B">🔵 Bậc B (Thường)</option>
+                        <option value="C">⚪ Bậc C (Mặc Định)</option>
+                    </select>
+
+                    <!-- Sắp Xếp -->
+                    <select onchange="onSkinDbSortChange(this.value)"
+                        class="bg-slate-950 border border-slate-700 text-slate-300 font-semibold rounded-lg px-2.5 py-1.5 text-xs focus:outline-none">
+                        <option value="id_asc">Sắp xếp: ID (#1 → #565)</option>
+                        <option value="tier_priority">⭐ Bậc (SSS → SS) & Ưu Tiên (Priority 1 → Top)</option>
+                        <option value="price_desc">Giá Thu Mua (Đắt → Rẻ)</option>
+                    </select>
+
+                    <!-- Excel Import / Export -->
+                    <button onclick="downloadExcelTemplate()"
+                        class="px-2.5 py-1.5 bg-emerald-950/60 hover:bg-emerald-900 text-emerald-300 border border-emerald-600/50 rounded-lg font-bold flex items-center gap-1 shadow transition-all"
+                        title="Tải file Excel mẫu (.xlsx) chứa đầy đủ 565 skin để chỉnh sửa Tier, Độ ưu tiên, Giá bán">
+                        <i class="fa-solid fa-file-excel text-emerald-400"></i> Tải Mẫu Excel
+                    </button>
+                    <button onclick="triggerImportSkinExcel()"
+                        class="px-2.5 py-1.5 bg-teal-900/60 hover:bg-teal-800 text-teal-200 border border-teal-500/50 rounded-lg font-bold flex items-center gap-1 shadow transition-all"
+                        title="Nhập file Excel (.xlsx hoặc .csv) sau khi bạn đã chỉnh sửa">
+                        <i class="fa-solid fa-file-arrow-up text-teal-400"></i> Nhập Excel
+                    </button>
+                    <input type="file" id="skinExcelFileInput" accept=".xlsx,.xls,.csv" class="hidden"
+                        onchange="handleSkinExcelImport(event)">
+
+                    <!-- Bulk Actions -->
+                    <button onclick="openBulkSetupPrompt()"
+                        class="px-2.5 py-1.5 bg-amber-950/60 hover:bg-amber-900 text-amber-300 border border-amber-600/50 rounded-lg font-bold flex items-center gap-1"
+                        title="Gán giá tiền và độ ưu tiên hàng loạt theo bậc">
+                        <i class="fa-solid fa-bolt"></i> Gán Nhanh
+                    </button>
+                    <button onclick="exportSkinDatabaseJSON()"
+                        class="px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 rounded-lg font-semibold flex items-center gap-1"
+                        title="Xuất file JSON sao lưu">
+                        <i class="fa-solid fa-download"></i> Xuất JSON
+                    </button>
+                    <button onclick="triggerImportSkinDatabase()"
+                        class="px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 rounded-lg font-semibold flex items-center gap-1"
+                        title="Nhập file JSON">
+                        <i class="fa-solid fa-upload"></i> Nhập JSON
+                    </button>
+                </div>
+            </div>
+
+            <!-- Table Container -->
+            <div class="flex-1 overflow-auto bg-slate-950/80 rounded-xl border border-slate-800">
+                <table class="w-full border-collapse text-left">
+                    <thead
+                        class="sticky top-0 bg-slate-900 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b border-slate-800 z-10">
+                        <tr>
+                            <th class="p-2.5 text-center w-14">ID</th>
+                            <th class="p-2.5 text-center w-16">Ảnh Thẻ</th>
+                            <th class="p-2.5 w-36">Cấp Bậc (Tier)</th>
+                            <th class="p-2.5 text-center w-28">Độ Ưu Tiên (1-100)</th>
+                            <th class="p-2.5 text-right w-36">Định Giá (VNĐ)</th>
+                            <th class="p-2.5">Ghi Chú</th>
+                        </tr>
+                    </thead>
+                    <tbody id="skinDatabaseTableBody" class="divide-y divide-slate-800/40">
+                        <!-- Rendered by JS -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="flex justify-between items-center pt-2 border-t border-slate-800 shrink-0">
+                <div id="skinDbPagination" class="text-xs text-slate-400"></div>
+                <div class="flex items-center gap-2">
+                    <button onclick="closeSkinDatabaseModal()"
+                        class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg">
+                        Đóng
+                    </button>
+                    <button onclick="saveSkinDatabase()"
+                        class="px-5 py-2 bg-gradient-to-r from-emerald-500 to-teal-500 hover:brightness-110 text-slate-950 text-xs font-black rounded-lg shadow-lg flex items-center gap-1.5">
+                        <i class="fa-solid fa-check"></i> Lưu Lại
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     <!-- SCRIPTS -->
     <script src="js/templates.js"></script>
     <script src="js/prompts.js"></script>
+    <script src="js/skinSignatures.js"></script>
+    <script src="js/skinDatabaseData.js"></script>
+    <script src="js/skinDatabase.js"></script>
     <script src="js/canvas.js"></script>
     <script src="js/crop.js"></script>
     <script src="js/gridCrop.js"></script>
