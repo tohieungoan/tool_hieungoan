@@ -921,9 +921,9 @@ function applyAutoDetectedSkins() {
         }
     }
 
-    // Tự động sắp xếp thẻ: Ưu tiên Bậc (SSS > SS...) -> Priority cao nhất -> Giá thu mua
+    // Tự động sắp xếp thẻ: Ưu tiên Bậc VIP (SSS > SS > S > A > B) lên đầu, skin không có dữ liệu ở cuối
     const chkSortOnCrop = document.getElementById('chkAutoSortOnCrop');
-    if (chkSortOnCrop && chkSortOnCrop.checked && typeof compareSkinPrecedence === 'function') {
+    if ((!chkSortOnCrop || chkSortOnCrop.checked) && typeof compareSkinPrecedence === 'function') {
         cardsToCrop.sort((cA, cB) => {
             const infoA = typeof getSkinDataById === 'function' ? getSkinDataById(cA.skinId) : null;
             const infoB = typeof getSkinDataById === 'function' ? getSkinDataById(cB.skinId) : null;
@@ -1071,7 +1071,7 @@ function applyAllBatchAutoDetectImages() {
                 }
             }
             if (minTier && minTier !== 'ALL' && typeof isSkinEligibleForTier === 'function') {
-                if (!isSkinEligibleForTier(card.skinId || (cIdx + 1), minTier)) return;
+                if (!isSkinEligibleForTier(card.skinId, minTier)) return;
             }
             allCrops.push({
                 img: itm.img,
@@ -1085,9 +1085,9 @@ function applyAllBatchAutoDetectImages() {
         return;
     }
 
-    // Tự động sắp xếp: Ưu tiên Bậc (SSS > SS...) -> Priority cao nhất -> Giá thu mua
+    // Tự động sắp xếp: Ưu tiên Bậc VIP (SSS > SS > S > A > B) lên đầu, skin không có dữ liệu ở cuối
     const chkSortOnCrop = document.getElementById('chkAutoSortOnCrop');
-    if (chkSortOnCrop && chkSortOnCrop.checked && typeof compareSkinPrecedence === 'function') {
+    if ((!chkSortOnCrop || chkSortOnCrop.checked) && typeof compareSkinPrecedence === 'function') {
         allCrops.sort((a, b) => {
             const infoA = typeof getSkinDataById === 'function' ? getSkinDataById(a.card.skinId) : null;
             const infoB = typeof getSkinDataById === 'function' ? getSkinDataById(b.card.skinId) : null;

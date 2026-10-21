@@ -737,7 +737,7 @@ function handleGlobalPaste(e) {
 // Global Paste Event Listener
 window.addEventListener('paste', handleGlobalPaste);
 
-// --- RENDER SLOT CONTROLS IN SIDEBAR ---
+// --- RENDER SLOT CONTROLS IN SIDEBAR (TINH GỌN & HIỆN ĐẠI) ---
 function renderSlotControls() {
     const container = document.getElementById('slotsContainer');
     if (!container) return;
@@ -747,19 +747,26 @@ function renderSlotControls() {
         const div = document.createElement('div');
         const hasImg = slot.img !== null;
         const isActive = (index === activeSlotIndex);
-        const isHeroSlot = (index >= 1 && index <= 6);
         const isGridSkin = slot.id.startsWith("grid_skins_");
         const spanVal = `${slot.colSpan || 1}x${slot.rowSpan || 1}`;
 
-        div.className = `flex items-center justify-between p-2 rounded-xl border text-xs transition-all cursor-pointer ${
+        div.className = `flex items-center justify-between p-2 rounded-xl border text-xs transition-all cursor-pointer group ${
             isActive 
-                ? 'bg-slate-900/90 border-amber-400 ring-1 ring-amber-400/50 shadow-md shadow-amber-950/40' 
-                : 'bg-slate-900/80 border-slate-800 hover:border-slate-700'
+                ? 'bg-slate-900/95 border-amber-400 ring-1 ring-amber-400/50 shadow-md shadow-amber-950/40' 
+                : 'bg-slate-900/80 border-slate-800 hover:border-slate-700 hover:bg-slate-850'
         }`;
 
         div.onclick = (e) => {
             if (['BUTTON', 'INPUT', 'LABEL', 'I'].includes(e.target.tagName)) return;
             selectActiveSlot(index);
+        };
+
+        // Bắt sự kiện click chuột phải trực tiếp trên từng ô ở sidebar
+        div.oncontextmenu = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            selectActiveSlot(index);
+            showSlotContextMenu(index, e.clientX, e.clientY);
         };
 
         div.ondragover = (e) => {
@@ -775,75 +782,391 @@ function renderSlotControls() {
         };
 
         div.innerHTML = `
-            <div class="flex items-center gap-2 overflow-hidden">
-                <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center border ${isActive ? 'border-amber-400/60' : 'border-slate-700'} shrink-0 overflow-hidden relative">
-                    ${hasImg ? `<img src="${slot.img.src}" class="w-full h-full object-cover">` : `<i class="fa-solid fa-image text-slate-500"></i>`}
+            <div class="flex items-center gap-2.5 overflow-hidden flex-1 mr-2">
+                <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center border ${isActive ? 'border-amber-400/70' : 'border-slate-700'} shrink-0 overflow-hidden relative shadow-inner">
+                    ${hasImg ? `<img src="${slot.img.src}" class="w-full h-full object-cover">` : `<i class="fa-solid fa-image text-slate-500 text-xs"></i>`}
                     ${isActive ? `<span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-amber-400 ring-2 ring-slate-900"></span>` : ''}
                 </div>
                 <div class="truncate">
-                    <span class="font-medium ${isActive ? 'text-amber-300 font-bold' : 'text-slate-300'} block truncate">
-                        [${index + 1}] ${slot.label}
-                    </span>
-                    <div class="flex items-center gap-1">
-                        <span class="text-[10px] ${hasImg ? 'text-emerald-400 font-medium' : 'text-slate-500'}">
+                    <div class="font-medium ${isActive ? 'text-amber-300 font-bold' : 'text-slate-300'} truncate flex items-center gap-1">
+                        <span class="text-slate-400 font-mono text-[11px]">#${index + 1}</span>
+                        <span class="truncate">${slot.label}</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 mt-0.5">
+                        <span class="text-[10px] ${hasImg ? 'text-emerald-400 font-semibold' : 'text-slate-500'}">
                             ${hasImg ? 'Đã có ảnh' : 'Chưa có ảnh'}
                         </span>
+                        ${isGridSkin && spanVal !== '1x1' ? `<span class="text-[9px] bg-sky-950 text-sky-300 px-1 rounded border border-sky-800 font-bold font-mono">${spanVal.replace('x', '×')}</span>` : ''}
                         ${isActive ? `<span class="text-[9px] bg-amber-500/20 text-amber-300 px-1 rounded border border-amber-500/40 font-bold">Chờ dán</span>` : ''}
                     </div>
                 </div>
             </div>
-            <div class="flex items-center gap-1 shrink-0">
-                <!-- Cụm nút mũi tên đổi vị trí (Next / Chen ô trước) -->
-                <div class="flex items-center bg-slate-950 border border-slate-700/80 rounded-lg p-0.5 shadow-sm" title="Đổi vị trí (Next: sang ô tiếp theo | Lùi: chen qua ô trước)">
-                    <button onclick="moveSlotImage(${index}, -1, event)" 
-                        class="px-1.5 py-1 text-slate-400 hover:text-amber-300 hover:bg-slate-800 rounded transition-all ${index === 0 ? 'opacity-30 cursor-not-allowed' : ''}" 
-                        title="Chen qua ô trước (Lùi lại ô #${index})" ${index === 0 ? 'disabled' : ''}>
-                        <i class="fa-solid fa-arrow-left text-[11px]"></i>
-                    </button>
-                    <div class="w-[1px] h-3.5 bg-slate-800 mx-0.5"></div>
-                    <button onclick="moveSlotImage(${index}, 1, event)" 
-                        class="px-1.5 py-1 text-slate-400 hover:text-amber-300 hover:bg-slate-800 rounded transition-all" 
-                        title="Đổi qua ô tiếp theo (Tiến sang ô #${index + 2})">
-                        <i class="fa-solid fa-arrow-right text-[11px]"></i>
-                    </button>
-                </div>
 
-                ${isGridSkin ? `
-                <select onchange="updateSlotSpan(${index}, this.value)" class="bg-slate-950 border border-slate-700 rounded text-[10px] text-amber-300 font-bold px-1 py-1" title="Kích thước gộp ô (Cột x Hàng)">
-                    <option value="1x1" ${spanVal === '1x1' ? 'selected' : ''}>1×1</option>
-                    <option value="2x1" ${spanVal === '2x1' ? 'selected' : ''}>2×1</option>
-                    <option value="1x2" ${spanVal === '1x2' ? 'selected' : ''}>1×2</option>
-                    <option value="2x2" ${spanVal === '2x2' ? 'selected' : ''}>2×2</option>
-                    <option value="3x1" ${spanVal === '3x1' ? 'selected' : ''}>3×1</option>
-                    <option value="3x2" ${spanVal === '3x2' ? 'selected' : ''}>3×2</option>
-                </select>
-                ` : ''}
-                ${isHeroSlot ? `
-                <label class="flex items-center gap-1 cursor-pointer bg-amber-900/20 border border-amber-700/40 rounded px-1.5 py-0.5" title="Bật hiệu ứng 3D: Ảnh vượt ra ngoài khung (dùng PNG đã xóa nền)">
-                    <input type="checkbox" onchange="toggleBreakthrough(${index}, this.checked)" ${slot.breakthrough ? 'checked' : ''} class="accent-amber-400 w-3 h-3">
-                    <span class="text-[10px] text-amber-300 font-bold">3D</span>
-                </label>
-                ` : ''}
-                <button onclick="pasteToSlot(event, ${index})" class="px-2 py-1 bg-emerald-900/40 border border-emerald-600/50 hover:bg-emerald-800/60 text-emerald-300 rounded cursor-pointer text-[11px] transition-all flex items-center gap-1" title="Dán ảnh từ Clipboard (Ctrl+V)">
-                    <i class="fa-solid fa-paste"></i> Dán
+            <div class="flex items-center gap-1 shrink-0">
+                <button onclick="pasteToSlot(event, ${index})" 
+                    class="px-2.5 py-1 bg-emerald-950/70 border border-emerald-600/50 hover:bg-emerald-800/70 text-emerald-300 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 shadow-sm" 
+                    title="Dán nhanh từ Clipboard (Ctrl+V)">
+                    <i class="fa-solid fa-paste text-[10px]"></i> Dán
                 </button>
-                <label class="px-2 py-1 bg-purple-900/40 border border-purple-600/50 hover:bg-purple-800/60 text-purple-300 rounded cursor-pointer text-[11px] transition-all">
-                    <i class="fa-solid fa-upload"></i> Nạp
-                    <input type="file" accept="image/*" class="hidden" onchange="uploadSlotImage(event, ${index})">
-                </label>
-                ${hasImg ? `
-                    <button onclick="openCropModal(${index})" class="px-2 py-1 bg-amber-900/40 border border-amber-600/50 hover:bg-amber-800/60 text-amber-300 rounded text-[11px]" title="Chỉnh sửa / Crop">
-                        <i class="fa-solid fa-crop-simple"></i>
-                    </button>
-                    <button onclick="clearSlotImage(${index})" class="px-2 py-1 bg-red-900/40 border border-red-700/50 hover:bg-red-800/60 text-red-300 rounded text-[11px]" title="Xóa ảnh">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                ` : ''}
+                <button onclick="openSlotMenuFromButton(event, ${index})" 
+                    class="w-7 h-7 flex items-center justify-center bg-slate-800/80 hover:bg-slate-700 hover:text-amber-300 border border-slate-700 rounded-lg text-slate-400 text-xs transition-all shadow-sm" 
+                    title="Mở menu chức năng (Chuột phải)">
+                    <i class="fa-solid fa-ellipsis-vertical text-[11px]"></i>
+                </button>
             </div>
         `;
         container.appendChild(div);
     });
 }
+
+// ─────────────────────────────────────────────────────────────────────────
+//  CONTEXT MENU CHUỘT PHẢI CHO CÁC Ô TRÊN CANVAS & SIDEBAR
+// ─────────────────────────────────────────────────────────────────────────
+let currentContextMenuSlotIndex = null;
+
+function showSlotContextMenu(slotIndex, clientX, clientY) {
+    if (slotIndex < 0 || slotIndex >= slotsData.length) return;
+    currentContextMenuSlotIndex = slotIndex;
+    const slot = slotsData[slotIndex];
+    const menu = document.getElementById('slotContextMenu');
+    if (!menu) return;
+
+    // Cập nhật Header Context Menu
+    const thumbEl = document.getElementById('ctxSlotThumb');
+    const titleEl = document.getElementById('ctxSlotTitle');
+    const subEl = document.getElementById('ctxSlotSub');
+    const statusEl = document.getElementById('ctxSlotStatus');
+
+    if (thumbEl) {
+        thumbEl.innerHTML = slot.img 
+            ? `<img src="${slot.img.src}" class="w-full h-full object-cover">`
+            : `<i class="fa-solid fa-image text-slate-500"></i>`;
+    }
+    if (titleEl) {
+        titleEl.textContent = `[Ô #${slotIndex + 1}] ${slot.label}`;
+    }
+    if (subEl) {
+        subEl.textContent = slot.id.startsWith('grid_skins_') ? 'Ô Skin trong lưới' : 'Ô Banner / Tướng Hot';
+    }
+    if (statusEl) {
+        if (slot.img) {
+            statusEl.textContent = 'Có ảnh';
+            statusEl.className = 'text-[10px] px-2 py-0.5 rounded-full font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 shrink-0';
+        } else {
+            statusEl.textContent = 'Trống';
+            statusEl.className = 'text-[10px] px-2 py-0.5 rounded-full font-bold bg-slate-700/60 text-slate-400 border border-slate-600/40 shrink-0';
+        }
+    }
+
+    // Nút Crop & Xóa ảnh: chỉ hiển thị nếu có ảnh
+    const btnCrop = document.getElementById('ctxBtnCrop');
+    const btnClearImg = document.getElementById('ctxBtnClearImg');
+    if (btnCrop) btnCrop.style.display = slot.img ? 'flex' : 'none';
+    if (btnClearImg) btnClearImg.style.display = slot.img ? 'flex' : 'none';
+
+    // Nút xóa ô hoàn toàn: Ẩn nếu là header (index 0)
+    const btnRemove = document.getElementById('ctxBtnRemove');
+    if (btnRemove) {
+        btnRemove.style.display = (slotIndex === 0) ? 'none' : 'flex';
+    }
+
+    // Nút lùi / tiến
+    const btnMovePrev = document.getElementById('ctxBtnMovePrev');
+    if (btnMovePrev) {
+        btnMovePrev.disabled = (slotIndex === 0);
+        btnMovePrev.classList.toggle('opacity-40', slotIndex === 0);
+        btnMovePrev.classList.toggle('cursor-not-allowed', slotIndex === 0);
+    }
+
+    // Section Span (chỉ dành cho các ô skin grid_skins_)
+    const spanSection = document.getElementById('ctxSpanSection');
+    const spanButtonsContainer = document.getElementById('ctxSpanButtons');
+    if (spanSection && spanButtonsContainer) {
+        const isGridSkin = slot.id.startsWith('grid_skins_');
+        spanSection.style.display = isGridSkin ? 'block' : 'none';
+        if (isGridSkin) {
+            const currentSpan = `${slot.colSpan || 1}x${slot.rowSpan || 1}`;
+            const spans = ['1x1', '2x1', '1x2', '2x2', '3x1', '3x2'];
+            spanButtonsContainer.innerHTML = spans.map(s => `
+                <button onclick="handleContextSpanChange('${s}')" 
+                    class="py-1 px-1 rounded text-[10px] font-bold border transition-all ${
+                        currentSpan === s 
+                            ? 'bg-amber-500/30 text-amber-300 border-amber-400 ring-1 ring-amber-400/50' 
+                            : 'bg-slate-800/80 text-slate-400 border-slate-700/80 hover:bg-slate-700 hover:text-slate-200'
+                    }">
+                    ${s.replace('x', '×')}
+                </button>
+            `).join('');
+        }
+    }
+
+    // Hiển thị menu và tính toán vị trí để không bị tràn màn hình
+    menu.classList.remove('hidden');
+
+    const menuW = 288;
+    const menuH = menu.offsetHeight || 380;
+    const pad = 12;
+
+    let posX = clientX;
+    let posY = clientY;
+
+    if (posX + menuW > window.innerWidth - pad) {
+        posX = window.innerWidth - menuW - pad;
+    }
+    if (posX < pad) posX = pad;
+
+    if (posY + menuH > window.innerHeight - pad) {
+        posY = window.innerHeight - menuH - pad;
+    }
+    if (posY < pad) posY = pad;
+
+    menu.style.left = `${posX}px`;
+    menu.style.top = `${posY}px`;
+}
+window.showSlotContextMenu = showSlotContextMenu;
+
+function hideSlotContextMenu() {
+    const menu = document.getElementById('slotContextMenu');
+    if (menu) menu.classList.add('hidden');
+    currentContextMenuSlotIndex = null;
+}
+window.hideSlotContextMenu = hideSlotContextMenu;
+
+function openSlotMenuFromButton(e, index) {
+    if (e) {
+        e.stopPropagation();
+        e.preventDefault();
+    }
+    selectActiveSlot(index);
+    const rect = e.currentTarget.getBoundingClientRect();
+    showSlotContextMenu(index, rect.right - 288, rect.bottom + 6);
+}
+window.openSlotMenuFromButton = openSlotMenuFromButton;
+
+function handleContextSpanChange(spanVal) {
+    if (currentContextMenuSlotIndex === null) return;
+    updateSlotSpan(currentContextMenuSlotIndex, spanVal);
+    hideSlotContextMenu();
+}
+window.handleContextSpanChange = handleContextSpanChange;
+
+function setupSlotContextMenuEvents() {
+    const btnPaste = document.getElementById('ctxBtnPaste');
+    if (btnPaste) {
+        btnPaste.onclick = (e) => {
+            if (currentContextMenuSlotIndex !== null) {
+                const idx = currentContextMenuSlotIndex;
+                hideSlotContextMenu();
+                pasteToSlot(e, idx);
+            }
+        };
+    }
+
+    const btnUpload = document.getElementById('ctxBtnUpload');
+    const fileInput = document.getElementById('slotContextMenuFileInput');
+    if (btnUpload && fileInput) {
+        btnUpload.onclick = () => {
+            if (currentContextMenuSlotIndex !== null) {
+                fileInput.value = '';
+                fileInput.click();
+            }
+        };
+        fileInput.onchange = (e) => {
+            if (currentContextMenuSlotIndex !== null) {
+                uploadSlotImage(e, currentContextMenuSlotIndex);
+                hideSlotContextMenu();
+            }
+        };
+    }
+
+    const btnCrop = document.getElementById('ctxBtnCrop');
+    if (btnCrop) {
+        btnCrop.onclick = () => {
+            if (currentContextMenuSlotIndex !== null) {
+                const idx = currentContextMenuSlotIndex;
+                hideSlotContextMenu();
+                openCropModal(idx);
+            }
+        };
+    }
+
+    const btnClearImg = document.getElementById('ctxBtnClearImg');
+    if (btnClearImg) {
+        btnClearImg.onclick = () => {
+            if (currentContextMenuSlotIndex !== null) {
+                const idx = currentContextMenuSlotIndex;
+                hideSlotContextMenu();
+                clearSlotImage(idx);
+            }
+        };
+    }
+
+    const btnInsert = document.getElementById('ctxBtnInsert');
+    if (btnInsert) {
+        btnInsert.onclick = (e) => {
+            if (currentContextMenuSlotIndex !== null) {
+                const idx = currentContextMenuSlotIndex;
+                hideSlotContextMenu();
+                insertSlotAt(idx, e);
+            }
+        };
+    }
+
+    const btnRemove = document.getElementById('ctxBtnRemove');
+    if (btnRemove) {
+        btnRemove.onclick = (e) => {
+            if (currentContextMenuSlotIndex !== null) {
+                const idx = currentContextMenuSlotIndex;
+                hideSlotContextMenu();
+                removeSlotCompletely(idx, e);
+            }
+        };
+    }
+
+    const btnMovePrev = document.getElementById('ctxBtnMovePrev');
+    if (btnMovePrev) {
+        btnMovePrev.onclick = (e) => {
+            if (currentContextMenuSlotIndex !== null) {
+                const idx = currentContextMenuSlotIndex;
+                hideSlotContextMenu();
+                moveSlotImage(idx, -1, e);
+            }
+        };
+    }
+
+    const btnMoveNext = document.getElementById('ctxBtnMoveNext');
+    if (btnMoveNext) {
+        btnMoveNext.onclick = (e) => {
+            if (currentContextMenuSlotIndex !== null) {
+                const idx = currentContextMenuSlotIndex;
+                hideSlotContextMenu();
+                moveSlotImage(idx, 1, e);
+            }
+        };
+    }
+
+    // Đóng khi click ngoài menu
+    window.addEventListener('pointerdown', (e) => {
+        const menu = document.getElementById('slotContextMenu');
+        if (menu && !menu.classList.contains('hidden')) {
+            if (!menu.contains(e.target) && !e.target.closest('#slotContextMenu')) {
+                hideSlotContextMenu();
+            }
+        }
+    });
+
+    // Đóng khi bấm phím Escape
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            hideSlotContextMenu();
+        }
+    });
+}
+window.setupSlotContextMenuEvents = setupSlotContextMenuEvents;
+
+// --- CHÈN THÊM Ô MỚI TẠI VỊ TRÍ INDEX ---
+function insertSlotAt(index, e) {
+    if (e) {
+        e.stopPropagation();
+        e.preventDefault();
+    }
+
+    const newSlot = {
+        id: `grid_skins_temp_${Date.now()}`,
+        label: `Skin mới`,
+        img: null,
+        scale: 1,
+        rotate: 0,
+        offsetX: 0,
+        offsetY: 0,
+        tag: '',
+        colSpan: 1,
+        rowSpan: 1
+    };
+
+    // Chèn ô mới vào đúng vị trí index
+    slotsData.splice(index, 0, newSlot);
+
+    // Chuẩn hóa lại ID và nhãn cho các ô grid_skins_
+    let skinIdx = 0;
+    slotsData.forEach((s) => {
+        if (s.id.startsWith('grid_skins_')) {
+            s.id = `grid_skins_${skinIdx}`;
+            s.label = `Skin #${skinIdx + 1}`;
+            skinIdx++;
+        }
+    });
+
+    // Đồng bộ lại tổng số ô skin trên thanh cấu hình
+    const inpSkinCount = document.getElementById('inpSkinCount');
+    if (inpSkinCount) {
+        inpSkinCount.value = skinIdx;
+    }
+
+    // Chọn ô mới được chèn làm active slot
+    activeSlotIndex = index;
+
+    renderSlotControls();
+    updateRender();
+    if (typeof saveHistoryState === 'function') saveHistoryState();
+    if (typeof autoSaveProject === 'function') autoSaveProject();
+    if (typeof showToast === 'function') {
+        showToast(`➕ Đã chèn 1 ô trống mới vào vị trí #${index + 1}!`);
+    }
+}
+window.insertSlotAt = insertSlotAt;
+
+// --- LOẠI BỎ HOÀN TOÀN 1 Ô KHỎI BANNER ---
+function removeSlotCompletely(index, e) {
+    if (e) {
+        e.stopPropagation();
+        e.preventDefault();
+    }
+
+    if (index < 0 || index >= slotsData.length) return;
+
+    if (slotsData[index].id === 'header_logo' || index === 0) {
+        if (typeof showToast === 'function') showToast("Không thể xóa ô Header!");
+        else alert("Không thể xóa ô Header!");
+        return;
+    }
+
+    const label = slotsData[index].label || `Slot #${index + 1}`;
+
+    // Xóa vĩnh viễn ô khỏi mảng slotsData
+    slotsData.splice(index, 1);
+
+    // Chuẩn hóa lại ID và nhãn cho các ô grid_skins_
+    let skinIdx = 0;
+    slotsData.forEach((s) => {
+        if (s.id.startsWith('grid_skins_')) {
+            s.id = `grid_skins_${skinIdx}`;
+            s.label = `Skin #${skinIdx + 1}`;
+            skinIdx++;
+        }
+    });
+
+    // Đồng bộ lại tổng số ô skin trên thanh cấu hình
+    const inpSkinCount = document.getElementById('inpSkinCount');
+    if (inpSkinCount) {
+        inpSkinCount.value = skinIdx;
+    }
+
+    // Cập nhật activeSlotIndex nếu cần
+    if (activeSlotIndex >= slotsData.length) {
+        activeSlotIndex = Math.max(0, slotsData.length - 1);
+    }
+
+    renderSlotControls();
+    updateRender();
+    if (typeof saveHistoryState === 'function') saveHistoryState();
+    if (typeof autoSaveProject === 'function') autoSaveProject();
+    if (typeof showToast === 'function') {
+        showToast(`🗑️ Đã loại bỏ hoàn toàn ô [${label}] khỏi banner!`);
+    }
+}
+window.removeSlotCompletely = removeSlotCompletely;
+
 
 // --- MOVE / SWAP SLOT IMAGE POSITION ---
 function moveSlotImage(currentIndex, direction, e) {
@@ -1512,6 +1835,10 @@ function autoSaveProject() {
 function loadProjectSnapshot(snapshot) {
     if (!snapshot) return;
 
+    if (Array.isArray(snapshot)) {
+        snapshot = { slotsData: snapshot };
+    }
+
     if (snapshot.template) {
         currentTemplate = snapshot.template;
         document.querySelectorAll('.tpl-btn').forEach(btn => {
@@ -1521,6 +1848,11 @@ function loadProjectSnapshot(snapshot) {
         const selectedBtn = document.getElementById(`tpl_${currentTemplate}`);
         if (selectedBtn) {
             selectedBtn.classList.add('active', 'border-amber-500', 'bg-amber-500/10');
+        }
+        const canvas = document.getElementById('mainCanvas');
+        const config = (typeof TEMPLATE_CONFIGS !== 'undefined') ? TEMPLATE_CONFIGS[currentTemplate] : null;
+        if (canvas && config) {
+            canvas.width = config.width;
         }
     }
 
@@ -1546,9 +1878,9 @@ function loadProjectSnapshot(snapshot) {
     const chkBadge = document.getElementById('chkShowVipBadge');
     const chkText  = document.getElementById('chkShowVipText');
     const clrText  = document.getElementById('clrVipText');
-    if (chkBadge) chkBadge.checked = badgeSettings.showVipBadge;
-    if (chkText)  chkText.checked  = badgeSettings.showVipText;
-    if (clrText)  clrText.value    = badgeSettings.vipTextColor;
+    if (chkBadge && badgeSettings.showVipBadge !== undefined) chkBadge.checked = badgeSettings.showVipBadge;
+    if (chkText && badgeSettings.showVipText !== undefined)  chkText.checked  = badgeSettings.showVipText;
+    if (clrText && badgeSettings.vipTextColor)  clrText.value    = badgeSettings.vipTextColor;
 
     const chkTopCards  = document.getElementById('chkFrameTopCards');
     const selTopStyle  = document.getElementById('selFrameTopStyle');
@@ -1557,49 +1889,61 @@ function loadProjectSnapshot(snapshot) {
     const selGridStyle = document.getElementById('selFrameGridStyle');
     const clrGridColor = document.getElementById('clrFrameGridColor');
 
-    if (chkTopCards)  chkTopCards.checked  = frameSettings.topCards.enabled;
-    if (selTopStyle)  selTopStyle.value    = frameSettings.topCards.style;
-    if (clrTopColor)  clrTopColor.value    = frameSettings.topCards.color;
-    if (chkGridSkins) chkGridSkins.checked = frameSettings.gridSkins.enabled;
-    if (selGridStyle) selGridStyle.value   = frameSettings.gridSkins.style;
-    if (clrGridColor) clrGridColor.value   = frameSettings.gridSkins.color;
+    if (chkTopCards && frameSettings.topCards)  chkTopCards.checked  = frameSettings.topCards.enabled;
+    if (selTopStyle && frameSettings.topCards)  selTopStyle.value    = frameSettings.topCards.style;
+    if (clrTopColor && frameSettings.topCards)  clrTopColor.value    = frameSettings.topCards.color;
+    if (chkGridSkins && frameSettings.gridSkins) chkGridSkins.checked = frameSettings.gridSkins.enabled;
+    if (selGridStyle && frameSettings.gridSkins) selGridStyle.value   = frameSettings.gridSkins.style;
+    if (clrGridColor && frameSettings.gridSkins) clrGridColor.value   = frameSettings.gridSkins.color;
     const rngGridWidth = document.getElementById('rngFrameGridWidth');
     const valGridWidth = document.getElementById('valFrameGridWidth');
-    if (rngGridWidth && frameSettings.gridSkins.width !== undefined) {
+    if (rngGridWidth && frameSettings.gridSkins && frameSettings.gridSkins.width !== undefined) {
         rngGridWidth.value = frameSettings.gridSkins.width;
         if (valGridWidth) valGridWidth.innerText = `${frameSettings.gridSkins.width}px`;
     }
     const rngGridGap = document.getElementById('rngFrameGridGap');
     const valGridGap = document.getElementById('valFrameGridGap');
-    if (rngGridGap && frameSettings.gridSkins.gap !== undefined) {
+    if (rngGridGap && frameSettings.gridSkins && frameSettings.gridSkins.gap !== undefined) {
         rngGridGap.value = frameSettings.gridSkins.gap;
         if (valGridGap) valGridGap.innerText = `${frameSettings.gridSkins.gap}px`;
     }
 
     // Restore slotsData
     if (Array.isArray(snapshot.slotsData)) {
-        slotsData = snapshot.slotsData.map(s => {
+        slotsData = snapshot.slotsData.map((s, idx) => {
             const item = {
-                id: s.id,
-                label: s.label,
-                scale: s.scale || 1,
-                rotate: s.rotate || 0,
-                offsetX: s.offsetX || 0,
-                offsetY: s.offsetY || 0,
+                id: s.id || `slot_${idx}`,
+                label: s.label || `Slot #${idx + 1}`,
+                scale: typeof s.scale === 'number' ? s.scale : 1,
+                rotate: typeof s.rotate === 'number' ? s.rotate : 0,
+                offsetX: typeof s.offsetX === 'number' ? s.offsetX : 0,
+                offsetY: typeof s.offsetY === 'number' ? s.offsetY : 0,
                 tag: s.tag || '',
                 breakthrough: !!s.breakthrough,
-                colSpan: s.colSpan || 1,
-                rowSpan: s.rowSpan || 1,
+                colSpan: Math.max(1, parseInt(s.colSpan) || 1),
+                rowSpan: Math.max(1, parseInt(s.rowSpan) || 1),
                 img: null
             };
             if (s.imgSrc) {
                 const img = new Image();
-                img.onload = () => { updateRender(); };
+                img.onload = () => { 
+                    updateRender(); 
+                    renderSlotControls();
+                };
+                img.onerror = () => {
+                    console.warn(`Không thể nạp ảnh cho slot ${item.label}`);
+                };
                 img.src = s.imgSrc;
                 item.img = img;
             }
             return item;
         });
+
+        const skinCount = slotsData.filter(s => s.id && s.id.startsWith('grid_skins_')).length;
+        if (skinCount > 0) {
+            const curSkinInput = document.getElementById('inpSkinCount');
+            if (curSkinInput) curSkinInput.value = skinCount;
+        }
     }
 
     // Restore overlayElements
@@ -1616,6 +1960,7 @@ function loadProjectSnapshot(snapshot) {
         });
     }
 
+    activeSlotIndex = 0;
     renderSlotControls();
     renderOverlayControls();
     updateRender();
@@ -1657,12 +2002,22 @@ function exportProjectFile() {
 }
 
 function triggerImportProject() {
-    const input = document.getElementById('projectFileInput');
-    if (input) input.click();
+    let input = document.getElementById('projectFileInput');
+    if (!input) {
+        input = document.createElement('input');
+        input.type = 'file';
+        input.id = 'projectFileInput';
+        input.accept = '.json,application/json';
+        input.className = 'hidden';
+        input.onchange = handleProjectFileImport;
+        document.body.appendChild(input);
+    }
+    input.value = '';
+    input.click();
 }
 
 function handleProjectFileImport(e) {
-    const file = e.target.files[0];
+    const file = e.target.files && e.target.files[0];
     if (!file) return;
 
     const reader = new FileReader();
@@ -1673,8 +2028,13 @@ function handleProjectFileImport(e) {
             autoSaveProject();
             showToast("📂 Đã nạp dữ liệu dự án từ file JSON thành công!");
         } catch (err) {
-            showToast("⚠️ File project không hợp lệ!");
+            console.error("Lỗi khi mở file project:", err);
+            showToast("⚠️ File project không hợp lệ hoặc bị lỗi định dạng!");
         }
+    };
+    reader.onerror = (err) => {
+        console.error("Lỗi khi đọc file project:", err);
+        showToast("⚠️ Không thể đọc file dự án!");
     };
     reader.readAsText(file);
     e.target.value = '';
@@ -1799,11 +2159,69 @@ function renderMergeModalSlotsList() {
     });
 }
 
+// ─────────────────────────────────────────────────────────────────────────
+//  QUẢNG CÁO DỊCH VỤ TÔ HIẾU NGOAN
+// ─────────────────────────────────────────────────────────────────────────
+function addThNgoanAdOverlay() {
+    const textStr = "👑 TÔ HIẾU NGOAN: THU MUA ACC · NẠP TOKEN · GIFT SKIN (ZALO: 0347.645.312)";
+    const overlayId = `ad_thngoan_${Date.now()}`;
+    const newOverlay = {
+        id: overlayId,
+        type: 'text',
+        text: textStr,
+        x: 3,
+        y: 95.5,
+        width: 94,
+        height: 8,
+        opacity: 100,
+        zIndex: 99,
+        fontSize: 18,
+        fontColor: '#fef08a',
+        fontBold: true,
+        fontShadow: true
+    };
+    overlayElements.push(newOverlay);
+    selectedOverlayId = overlayId;
+    if (typeof renderOverlayControls === 'function') renderOverlayControls();
+    updateRender();
+    if (typeof autoSaveProject === 'function') autoSaveProject();
+    if (typeof showToast === 'function') {
+        showToast("✨ Đã chèn chữ quảng cáo 'Tô Hiếu Ngoan' lên Banner!");
+    }
+}
+window.addThNgoanAdOverlay = addThNgoanAdOverlay;
+
+function copyThNgoanContact() {
+    const info = `👑 TÔ HIẾU NGOAN STORE
+🔥 Chuyên nhận THU MUA ACC GAME GIÁ CAO
+💎 NẠP TOKEN CHIẾT KHẤU SÂU - AN TOÀN 100%
+🎁 GIFT SKIN SỰ KIỆN / SHOP GIÁ SIÊU RẺ
+📞 SĐT / ZALO CHỦ SHOP: 0347.645.312
+💬 Box Acc Zalo: https://zalo.me/g/qrkyzcfaty4d9okgn3pt
+👥 Box Giao Lưu: https://zalo.me/g/524sklapnde40ljgnvmu
+⚡ Uy tín tuyệt đối - Giao dịch nhanh 1 phút - Hỗ trợ 24/7!`;
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(info)
+            .then(() => {
+                if (typeof showToast === 'function') showToast("📋 Đã sao chép SĐT Zalo & Link 2 Box của Tô Hiếu Ngoan!");
+            })
+            .catch(() => {
+                if (typeof showToast === 'function') showToast("📋 Đã copy thông tin!");
+            });
+    } else {
+        if (typeof showToast === 'function') showToast("📋 Đã sao chép thông tin Tô Hiếu Ngoan!");
+    }
+}
+window.copyThNgoanContact = copyThNgoanContact;
+
 // Tự động khởi tạo ứng dụng khi load xong script
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         initTemplate('full_vip_6cards');
+        if (typeof setupSlotContextMenuEvents === 'function') setupSlotContextMenuEvents();
     });
 } else {
     initTemplate('full_vip_6cards');
+    if (typeof setupSlotContextMenuEvents === 'function') setupSlotContextMenuEvents();
 }

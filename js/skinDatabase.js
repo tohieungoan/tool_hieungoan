@@ -57,6 +57,21 @@ function initSkinDatabase() {
         }
     }
 
+    // Luôn đồng bộ Tier C & Price 0 từ DEFAULT_SKIN_DATABASE để các skin không có giá trị được cập nhật chuẩn xác ngay cả khi có cache cũ
+    if (typeof DEFAULT_SKIN_DATABASE !== 'undefined' && Array.isArray(DEFAULT_SKIN_DATABASE)) {
+        DEFAULT_SKIN_DATABASE.forEach(def => {
+            const s = skinDatabaseState.skins.find(item => item.id === def.id);
+            if (s) {
+                if (def.tier === 'C' || def.price === 0) {
+                    s.tier = 'C';
+                    s.price = 0;
+                }
+            } else {
+                skinDatabaseState.skins.push(JSON.parse(JSON.stringify(def)));
+            }
+        });
+    }
+
     // Đảm bảo tất cả skin đều có trường tier chuẩn xác
     skinDatabaseState.skins.forEach(s => {
         if (!s.tier || s.tier === 'B') {
@@ -79,12 +94,105 @@ function saveSkinDatabase(silent = false) {
         skinDatabaseState.hasUnsavedChanges = false;
         updateValuationWidget();
         if (!silent && typeof showToast === 'function') {
-            showToast("💾 Đã lưu dữ liệu bảng Skin & Định giá thành công!");
+            showToast("💾 Đã lưu dữ liệu vào trình duyệt!");
         }
     } catch (e) {
         alert("Lỗi lưu dữ liệu vào trình duyệt: " + e.message);
     }
 }
+
+/**
+ * Lưu trực tiếp vào file skinDatabaseData.js trên máy tính (dùng File System Access API)
+ * Hoặc tự động tải file skinDatabaseData.js về để ghi đè vào thư mục js/
+ */
+async function saveSkinDatabaseToFile() {
+    const jsContent = "const DEFAULT_SKIN_DATABASE = " + JSON.stringify(skinDatabaseState.skins, null, 2) + ";\n";
+    
+    // 1. Luôn lưu vào localStorage trước để web đồng bộ tức thì
+    saveSkinDatabase(true);
+
+    // 2. Thử dùng File System Access API (Hỗ trợ trực tiếp trên Chrome, Edge, Cốc Cốc, Opera)
+    if ('showSaveFilePicker' in window) {
+        try {
+            const handle = await window.showSaveFilePicker({
+                suggestedName: 'skinDatabaseData.js',
+                types: [{
+                    description: 'JavaScript File (*.js)',
+                    accept: {
+                        'text/javascript': ['.js'],
+                        'application/javascript': ['.js']
+                    }
+                }]
+            });
+            const writable = await handle.createWritable();
+            await writable.write(jsContent);
+            await writable.close();
+            
+            if (typeof showToast === 'function') {
+                showToast("✅ Đã ghi trực tiếp vào file skinDatabaseData.js!");
+            } else {
+                alert("✅ Đã ghi trực tiếp vào file skinDatabaseData.js thành công!\nBây giờ bạn chỉ cần push Git lên là GitHub Pages sẽ nhận giá mới.");
+            }
+            return true;
+        } catch (err) {
+            if (err.name === 'AbortError') {
+                return false; // Người dùng ấn Cancel
+            }
+            console.warn("showSaveFilePicker không khả dụng hoặc bị chặn:", err);
+        }
+    }
+
+    // 3. Dự phòng (Nếu mở qua file:/// bị chặn hoặc dùng trình duyệt không hỗ trợ File System API):
+    // Tự động tải file skinDatabaseData.js chuẩn về máy
+    const blob = new Blob([jsContent], { type: 'text/javascript;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'skinDatabaseData.js';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    if (typeof showToast === 'function') {
+        showToast("📥 Đã tải file skinDatabaseData.js! Hãy kéo đè vào thư mục js/ rồi push Git.");
+    } else {
+        alert("📥 Đã tạo file skinDatabaseData.js!\nDo trình duyệt hạn chế quyền tự động ghi file ở chế độ này, file đã được tải về máy.\n👉 Bạn chỉ cần copy/chép đè file vừa tải vào thư mục 'js/' của dự án rồi push Git.");
+    }
+    return true;
+}
+window.saveSkinDatabaseToFile = saveSkinDatabaseToFile;
+
+/**
+ * Đồng bộ / Khôi phục lại dữ liệu từ file skinDatabaseData.js gốc
+ * (Xóa cache localStorage để lấy giá mới nhất từ file gốc khi vừa pull Git)
+ */
+function resetSkinDatabaseToDefault() {
+    if (typeof DEFAULT_SKIN_DATABASE === 'undefined' || !DEFAULT_SKIN_DATABASE.length) {
+        alert("Không tìm thấy dữ liệu DEFAULT_SKIN_DATABASE trong file js/skinDatabaseData.js!");
+        return;
+    }
+    if (!confirm("Bạn có chắc muốn nạp lại toàn bộ dữ liệu từ file gốc js/skinDatabaseData.js?\n(Các thay đổi chưa lưu vào file sẽ bị ghi đè theo file)")) {
+        return;
+    }
+    try {
+        localStorage.removeItem('HOK_SKIN_DATABASE');
+        skinDatabaseState.skins = JSON.parse(JSON.stringify(DEFAULT_SKIN_DATABASE));
+        skinDatabaseState.hasUnsavedChanges = false;
+        updateValuationWidget();
+        renderSkinDatabaseStats();
+        renderSkinDatabaseTable();
+        if (typeof showToast === 'function') {
+            showToast("🔄 Đã tải lại dữ liệu từ file js/skinDatabaseData.js gốc!");
+        } else {
+            alert("Đã đồng bộ lại dữ liệu từ file js/skinDatabaseData.js gốc!");
+        }
+    } catch (e) {
+        alert("Lỗi khi tải lại dữ liệu: " + e.message);
+    }
+}
+window.resetSkinDatabaseToDefault = resetSkinDatabaseToDefault;
+
 
 function getSkinDataById(id) {
     if (!skinDatabaseState.skins) return null;
@@ -366,42 +474,72 @@ function getTierRank(tier) {
     if (!t) return 0;
     t = t.replace(/^(BẬC|TIER|CẤP)\s*/i, '').trim();
 
-    if (t.startsWith('SSS') || t.includes('MYTHIC') || t.includes('VÔ ĐỊCH') || t.includes('CHÍ TÔN')) return 6;
-    if (t.startsWith('SS') || t.includes('LEGEND') || t.includes('HUYỀN THOẠI')) return 5;
-    if (t.startsWith('S') || t.includes('EPIC') || t.includes('SỬ THI')) return 4;
-    if (t.startsWith('A') || t.includes('RARE') || t.includes('HIẾM') || t.includes('DŨNG GIẢ')) return 3;
-    if (t.startsWith('B') || t.includes('THƯỜNG') || t.includes('NORMAL')) return 2;
-    if (t.startsWith('C') || t.includes('MẶC ĐỊNH')) return 1;
+    if (t.startsWith('SSS') || t.includes('MYTHIC') || t.includes('VÔ ĐỊCH') || t.includes('CHÍ TÔN') || t.includes('VÔ SONG')) return 6;
+    if (t.startsWith('SS') || t.includes('LEGEND') || t.includes('HUYỀN THOẠI') || t.includes('COLAB') || t.includes('COLLAB') || t.includes('PRECIOUS')) return 5;
+    if (t.startsWith('S') || t.includes('EPIC') || t.includes('SỬ THI') || t.includes('BLESSED')) return 4;
+    if (t.startsWith('A') || t.includes('RARE') || t.includes('HIẾM') || t.includes('DŨNG GIẢ') || t.includes('LIMITED LEGEND') || t.includes('TẾT')) return 3;
+    if (t.startsWith('B') || t.includes('THƯỜNG') || t.includes('NORMAL') || t.includes('LIMITED EPIC')) return 2;
+    if (t.startsWith('C') || t.includes('MẶC ĐỊNH') || t.includes('FREE')) return 1;
 
     return TIER_RANKS[t] || 0;
 }
 window.getTierRank = getTierRank;
 
 function isSkinEligibleForTier(skinId, minTier) {
+    // 1. Nếu không chọn lọc (hoặc chọn 'ALL') -> Cho phép tất cả skin được crop
     if (!minTier || minTier === 'ALL') return true;
+
+    // 2. Khi đã chọn bộ lọc cụ thể (ví dụ SSS, SS, S, A, B, C):
+    // Bắt buộc phải nhận diện được skinId và có trong dữ liệu
+    if (!skinId) return false;
     const skin = getSkinDataById(skinId);
     if (!skin) return false;
+
+    // Skin không có giá trị / Bậc C / Giá 0đ -> LOẠI BỎ HOÀN TOÀN
+    if (skin.tier === 'C' || !skin.price || Number(skin.price) === 0) {
+        return false;
+    }
+
+    // Lấy cấp bậc tier của skin
     const skinTier = skin.tier || (typeof mapRarityToTier === 'function' ? mapRarityToTier(skin.rarity) : '');
     const rank = getTierRank(skinTier);
-    if (rank === 0) return false; // Không điền = không có giá trị
-    return rank >= getTierRank(minTier);
+    
+    // Nếu skin không có bậc, hoặc bậc <= 1 (Bậc C) -> Loại bỏ
+    if (rank <= 1) return false;
+
+    // Bậc tối thiểu yêu cầu của bộ lọc
+    const targetMinRank = getTierRank(minTier);
+
+    return rank >= targetMinRank;
 }
 window.isSkinEligibleForTier = isSkinEligibleForTier;
 
 /**
  * Thuật toán so sánh thứ tự ưu tiên:
- * 1. Tier cao hơn xếp trước: SSS (6) > SS (5) > S (4) > A (3) > B (2) > C (1) > Không điền (0)
- * 2. Cùng Tier: Priority THẤP NHẤT là ƯU TIÊN NHẤT (số nhỏ hơn = ưu tiên cao hơn: ví dụ 1 > 2 > 3 > 4 > 5...)
- *    Skin có điền Priority -> xếp trước skin không điền Priority
- * 3. Cùng Tier & cùng Priority: Giá tiền cao hơn xếp trước (giá thu mua cao hơn)
- * 4. Nếu vẫn bằng: Hot skin xếp trước -> ID nhỏ hơn xếp trước
+ * 1. Skin VIP (có trong dữ liệu: SSS, SS, S, A, B) luôn xếp TRƯỚC skin không có dữ liệu / Tier C
+ * 2. Skin không có dữ liệu / Tier C luôn XẾP Ở CUỐI ẢNH
+ * 3. Trong nhóm VIP:
+ *    - Tier cao hơn xếp trước: SSS (6) > SS (5) > S (4) > A (3) > B (2)
+ *    - Cùng Tier: Priority THẤP NHẤT là ƯU TIÊN NHẤT (1 > 2 > 3 > 4...)
+ *    - Cùng Priority: Giá thu mua cao hơn xếp trước
+ *    - Cùng Giá: Skin Hot xếp trước -> ID nhỏ hơn xếp trước
  */
 function compareSkinPrecedence(skinInfoA, skinInfoB) {
-    if (!skinInfoA && !skinInfoB) return 0;
-    if (skinInfoA && !skinInfoB) return -1;
-    if (!skinInfoA && skinInfoB) return 1;
+    // 1. Phân loại skin VIP (SSS, SS, S, A, B) vs skin không có dữ liệu / Tier C
+    const isUnlistedA = !skinInfoA || !skinInfoA.tier || skinInfoA.tier === 'C';
+    const isUnlistedB = !skinInfoB || !skinInfoB.tier || skinInfoB.tier === 'C';
 
-    // 1. So sánh Tier (Bậc)
+    if (!isUnlistedA && isUnlistedB) return -1; // A là VIP, B là skin không có dữ liệu/Tier C -> A xếp trước, B xếp sau (ở cuối ảnh)
+    if (isUnlistedA && !isUnlistedB) return 1;  // A là không có dữ liệu/Tier C, B là VIP -> B xếp trước, A xếp sau (ở cuối ảnh)
+    if (isUnlistedA && isUnlistedB) {
+        // Cả 2 đều là skin không có dữ liệu hoặc Tier C -> xếp theo ID
+        const idA = Number(skinInfoA ? skinInfoA.id : 999999);
+        const idB = Number(skinInfoB ? skinInfoB.id : 999999);
+        return idA - idB;
+    }
+
+    // 2. Cả 2 đều là skin VIP có dữ liệu:
+    // So sánh Tier (Bậc)
     const tierA = skinInfoA.tier || (skinInfoA.rarity ? (typeof mapRarityToTier === 'function' ? mapRarityToTier(skinInfoA.rarity) : skinInfoA.rarity) : '');
     const tierB = skinInfoB.tier || (skinInfoB.rarity ? (typeof mapRarityToTier === 'function' ? mapRarityToTier(skinInfoB.rarity) : skinInfoB.rarity) : '');
     const tierRankA = getTierRank(tierA);
@@ -411,7 +549,7 @@ function compareSkinPrecedence(skinInfoA, skinInfoB) {
         return tierRankB - tierRankA; // Rank cao hơn xếp trước (SSS = 6 > SS = 5 > S = 4...)
     }
 
-    // 2. Cùng Tier: So sánh Priority (Priority thấp nhất là ưu tiên nhất: 1 > 2 > 3...)
+    // So sánh Priority (Priority thấp nhất là ưu tiên nhất: 1 > 2 > 3...)
     const rawPrioA = skinInfoA.priority;
     const rawPrioB = skinInfoB.priority;
 
@@ -420,29 +558,29 @@ function compareSkinPrecedence(skinInfoA, skinInfoB) {
 
     if (numPrioA !== null && numPrioB !== null) {
         if (numPrioA !== numPrioB) {
-            return numPrioA - numPrioB; // Số nhỏ hơn = ưu tiên hơn đứng trước (ví dụ 1 đứng trước 2, 5 đứng trước 10)
+            return numPrioA - numPrioB; // Số nhỏ hơn = ưu tiên hơn đứng trước (1 đứng trước 2, 5 đứng trước 10)
         }
     } else if (numPrioA !== null && numPrioB === null) {
-        return -1; // A có điền priority, B không có -> A xếp trước
+        return -1;
     } else if (numPrioA === null && numPrioB !== null) {
-        return 1;  // B có điền priority, A không có -> B xếp trước
+        return 1;
     }
 
-    // 3. Cùng Tier và cùng Priority: Giá tiền thu mua cao hơn xếp trước
+    // Cùng Tier và cùng Priority: Giá tiền thu mua cao hơn xếp trước
     const priceA = (skinInfoA.price !== undefined && skinInfoA.price !== null && !isNaN(skinInfoA.price)) ? Number(skinInfoA.price) : 0;
     const priceB = (skinInfoB.price !== undefined && skinInfoB.price !== null && !isNaN(skinInfoB.price)) ? Number(skinInfoB.price) : 0;
     if (priceA !== priceB) {
         return priceB - priceA;
     }
 
-    // 4. Nếu vẫn bằng: Skin Hot xếp trước
+    // Skin Hot xếp trước
     const hotA = skinInfoA.is_hot ? 1 : 0;
     const hotB = skinInfoB.is_hot ? 1 : 0;
     if (hotA !== hotB) {
         return hotB - hotA;
     }
 
-    // 5. Nếu vẫn bằng: ID nhỏ hơn xếp trước
+    // ID nhỏ hơn xếp trước
     const idA = Number(skinInfoA.id || 0);
     const idB = Number(skinInfoB.id || 0);
     return idA - idB;

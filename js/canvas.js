@@ -87,7 +87,28 @@ function getRequiredCanvasHeight() {
     return Math.max(500, topSectionHeight + gridHeight + 16);
 }
 
+window.canvasSlotBounds = [];
+
+function registerCanvasSlotBound(slot, x, y, w, h) {
+    if (!slot || !window.canvasSlotBounds) return;
+    const index = slotsData.indexOf(slot);
+    if (index !== -1) {
+        window.canvasSlotBounds.push({
+            slot,
+            index,
+            x: Math.round(x),
+            y: Math.round(y),
+            w: Math.round(w),
+            h: Math.round(h)
+        });
+    }
+}
+window.registerCanvasSlotBound = registerCanvasSlotBound;
+
 function renderSceneToContext(ctx, w, h, isExport = false) {
+    if (!isExport) {
+        window.canvasSlotBounds = [];
+    }
     const showGridTagsChk = document.getElementById('chkShowGridTags');
     const colsPerRowInput = document.getElementById('inpColsPerRow');
 
@@ -146,6 +167,7 @@ window.renderSceneToContext = renderSceneToContext;
 function renderFullVipLayout(ctx, w, h, showGridTags, itemW, itemH, gridCols, gap) {
     const headerSlot = slotsData[0];
     const headerH = 135;
+    registerCanvasSlotBound(headerSlot, 0, 0, w, headerH);
     if (headerSlot && headerSlot.img) {
         drawCustomSlotImage(ctx, headerSlot, 0, 0, w, headerH);
     } else {
@@ -168,6 +190,7 @@ function renderFullVipLayout(ctx, w, h, showGridTags, itemW, itemH, gridCols, ga
     for (let i = 0; i < 6; i++) {
         const cx   = topStartX + i * (cardW + cardGap);
         const slot = slotsData[1 + i];
+        registerCanvasSlotBound(slot, cx, topStartY, cardW, cardH);
         drawTopNeonCard(ctx, cx, topStartY, cardW, cardH, slot);
 
         if (slot && slot.breakthrough && slot.img) {
@@ -180,6 +203,7 @@ function renderFullVipLayout(ctx, w, h, showGridTags, itemW, itemH, gridCols, ga
     const midH   = 185;
 
     const statsSlot = slotsData[7];
+    registerCanvasSlotBound(statsSlot, 8, midY, statsW, midH);
     if (statsSlot && statsSlot.img) {
         drawCustomSlotImage(ctx, statsSlot, 8, midY, statsW, midH);
     } else {
@@ -189,6 +213,7 @@ function renderFullVipLayout(ctx, w, h, showGridTags, itemW, itemH, gridCols, ga
     const portX   = statsW + 12;
     const portW   = w - portX - 8;
     const portSlot = slotsData[8];
+    registerCanvasSlotBound(portSlot, portX, midY, portW, midH);
 
     ctx.save();
     ctx.beginPath();
@@ -222,6 +247,7 @@ function renderFullVipLayout(ctx, w, h, showGridTags, itemW, itemH, gridCols, ga
 function renderSplit5050Layout(ctx, w, h, showGridTags, itemW, itemH, gridCols, gap) {
     const headerH = 100;
     const headerSlot = slotsData[0];
+    registerCanvasSlotBound(headerSlot, 0, 0, w, headerH);
     if (headerSlot && headerSlot.img) {
         drawCustomSlotImage(ctx, headerSlot, 0, 0, w, headerH);
     } else {
@@ -238,6 +264,7 @@ function renderSplit5050Layout(ctx, w, h, showGridTags, itemW, itemH, gridCols, 
     const profY = 95;
     const profW = w - 24;
     const profH = 300;
+    registerCanvasSlotBound(profileSlot, profX, profY, profW, profH);
 
     ctx.save();
     ctx.beginPath();
@@ -271,6 +298,7 @@ function renderSplit5050Layout(ctx, w, h, showGridTags, itemW, itemH, gridCols, 
 function renderShopVipBannerLayout(ctx, w, h, showGridTags, itemW, itemH, gridCols, gap) {
     const headerH = 90;
     const headerSlot = slotsData[0];
+    registerCanvasSlotBound(headerSlot, 0, 0, w, headerH);
     if (headerSlot && headerSlot.img) {
         drawCustomSlotImage(ctx, headerSlot, 0, 0, w, headerH);
     } else {
@@ -284,6 +312,7 @@ function renderShopVipBannerLayout(ctx, w, h, showGridTags, itemW, itemH, gridCo
     const profW = 340;
     const profH = 295;
     const profX = 12;
+    registerCanvasSlotBound(profSlot, profX, topStartY, profW, profH);
 
     ctx.save();
     ctx.beginPath();
@@ -312,6 +341,8 @@ function renderShopVipBannerLayout(ctx, w, h, showGridTags, itemW, itemH, gridCo
 
     const hero1 = slotsData[2];
     const hero2 = slotsData[3];
+    registerCanvasSlotBound(hero1, card1X, topStartY, cardW, cardH);
+    registerCanvasSlotBound(hero2, card2X, topStartY, cardW, cardH);
     drawTopNeonCard(ctx, card1X, topStartY, cardW, cardH, hero1);
     drawTopNeonCard(ctx, card2X, topStartY, cardW, cardH, hero2);
 
@@ -321,6 +352,7 @@ function renderShopVipBannerLayout(ctx, w, h, showGridTags, itemW, itemH, gridCo
     const statsY = topStartY + cardH + 8;
     const statsW = w - statsX - 12;
     const statsH = profH - cardH - 8;
+    registerCanvasSlotBound(statsSlot, statsX, statsY, statsW, statsH);
 
     if (statsSlot && statsSlot.img) {
         drawCustomSlotImage(ctx, statsSlot, statsX, statsY, statsW, statsH);
@@ -338,6 +370,7 @@ function renderShopVipBannerLayout(ctx, w, h, showGridTags, itemW, itemH, gridCo
 function renderSoloSpotlightLayout(ctx, w, h, showGridTags, itemW, itemH, gridCols, gap) {
     const headerH = 100;
     const headerSlot = slotsData[0];
+    registerCanvasSlotBound(headerSlot, 0, 0, w, headerH);
     if (headerSlot && headerSlot.img) {
         drawCustomSlotImage(ctx, headerSlot, 0, 0, w, headerH);
     } else {
@@ -351,16 +384,21 @@ function renderSoloSpotlightLayout(ctx, w, h, showGridTags, itemW, itemH, gridCo
     const mainH = 200;
     const mainX = (w - mainW) / 2;
     const mainHero = slotsData[1];
+    registerCanvasSlotBound(mainHero, mainX, topStartY, mainW, mainH);
 
     drawTopNeonCard(ctx, mainX, topStartY, mainW, mainH, mainHero);
 
     // Left 2 side heroes
     const subW = 110;
     const subH = 140;
+    registerCanvasSlotBound(slotsData[2], 12, topStartY + 30, subW, subH);
+    registerCanvasSlotBound(slotsData[3], 128, topStartY + 30, subW, subH);
     drawTopNeonCard(ctx, 12, topStartY + 30, subW, subH, slotsData[2]);
     drawTopNeonCard(ctx, 128, topStartY + 30, subW, subH, slotsData[3]);
 
     // Right 2 side heroes
+    registerCanvasSlotBound(slotsData[4], w - 128 - subW, topStartY + 30, subW, subH);
+    registerCanvasSlotBound(slotsData[5], w - 12 - subW, topStartY + 30, subW, subH);
     drawTopNeonCard(ctx, w - 128 - subW, topStartY + 30, subW, subH, slotsData[4]);
     drawTopNeonCard(ctx, w - 12 - subW, topStartY + 30, subW, subH, slotsData[5]);
 
@@ -369,6 +407,7 @@ function renderSoloSpotlightLayout(ctx, w, h, showGridTags, itemW, itemH, gridCo
     const statsY = topStartY + mainH + 10;
     const statsW = w - 24;
     const statsH = 110;
+    registerCanvasSlotBound(statsSlot, 12, statsY, statsW, statsH);
     if (statsSlot && statsSlot.img) {
         drawCustomSlotImage(ctx, statsSlot, 12, statsY, statsW, statsH);
     } else {
@@ -392,6 +431,7 @@ function renderMinimalShopLayout(ctx, w, h, showGridTags, itemW, itemH, gridCols
     const statsY = 75;
     const statsW = w - 24;
     const statsH = 130;
+    registerCanvasSlotBound(statsSlot, 12, statsY, statsW, statsH);
     if (statsSlot && statsSlot.img) {
         drawCustomSlotImage(ctx, statsSlot, 12, statsY, statsW, statsH);
     } else {
@@ -411,10 +451,11 @@ function renderGridSkins(ctx, w, gridStartY, itemW, itemH, gridCols, gap, showGr
 
     const { positions } = computeGridPlacement(skinSlots, gridCols, itemW, itemH, gap);
 
-    // Pass 1: Render toàn bộ ảnh nền của các ô
+    // Pass 1: Render toàn bộ ảnh nền của các ô và đăng ký bounds
     positions.forEach((pos) => {
         const gx = 8 + pos.col * (itemW + gap);
         const gy = gridStartY + pos.row * (itemH + gap);
+        registerCanvasSlotBound(pos.slot, gx, gy, pos.w, pos.h);
         drawSkinSlotContent(ctx, gx, gy, pos.w, pos.h, pos.slot);
     });
 
@@ -928,6 +969,59 @@ function setupCanvasOverlayInteractions() {
                 selectedOverlayId = null;
                 updateRender();
                 if (typeof renderOverlayControls === 'function') renderOverlayControls();
+            }
+
+            // 3. NẾU KHÔNG HIT VIP/OVERLAY: Click chuột trái chọn nhanh ô slot tương ứng
+            if (e.button === 0) {
+                const bounds = window.canvasSlotBounds || [];
+                for (let i = bounds.length - 1; i >= 0; i--) {
+                    const b = bounds[i];
+                    if (cx >= b.x && cx <= b.x + b.w && cy >= b.y && cy <= b.y + b.h) {
+                        if (typeof selectActiveSlot === 'function') {
+                            selectActiveSlot(b.index);
+                            const container = document.getElementById('slotsContainer');
+                            if (container && container.children[b.index]) {
+                                container.children[b.index].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+    });
+
+    // BẮT SỰ KIỆN CHUỘT PHẢI (CONTEXTMENU) TRÊN CÁC Ô TRỰC TIẾP TRÊN CANVAS
+    canvas.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const rect = canvas.getBoundingClientRect();
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+        const cx = (e.clientX - rect.left) * scaleX;
+        const cy = (e.clientY - rect.top) * scaleY;
+
+        const bounds = window.canvasSlotBounds || [];
+        let hitSlot = null;
+        for (let i = bounds.length - 1; i >= 0; i--) {
+            const b = bounds[i];
+            if (cx >= b.x && cx <= b.x + b.w && cy >= b.y && cy <= b.y + b.h) {
+                hitSlot = b;
+                break;
+            }
+        }
+
+        if (hitSlot) {
+            if (typeof selectActiveSlot === 'function') {
+                selectActiveSlot(hitSlot.index);
+                const container = document.getElementById('slotsContainer');
+                if (container && container.children[hitSlot.index]) {
+                    container.children[hitSlot.index].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            }
+            if (typeof showSlotContextMenu === 'function') {
+                showSlotContextMenu(hitSlot.index, e.clientX, e.clientY);
             }
         }
     });

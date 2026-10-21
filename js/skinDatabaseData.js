@@ -5,7 +5,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "Zilong",
     "skin_name": "Giáo Ánh Sao",
     "rarity": "LEGEND",
-    "priority": 85,
+    "priority": 61,
     "price": 20000,
     "is_hot": true,
     "notes": "",
@@ -17,7 +17,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "Ying",
     "skin_name": "Giáo Tinh Quang",
     "rarity": "LEGEND",
-    "priority": 85,
+    "priority": 61,
     "price": 20000,
     "is_hot": true,
     "notes": "",
@@ -29,7 +29,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "Kaizer",
     "skin_name": "Kẻ Hủy Diệt",
     "rarity": "LEGEND",
-    "priority": 85,
+    "priority": 61,
     "price": 20000,
     "is_hot": true,
     "notes": "",
@@ -53,11 +53,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "Heino",
     "skin_name": "Hào Quang Ánh Sao",
     "rarity": "LEGEND",
-    "priority": 85,
-    "price": 0,
+    "priority": 61,
+    "price": 15000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "B"
   },
   {
     "id": 6,
@@ -65,7 +65,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "Nữ Oa",
     "skin_name": "Người Vá Trời",
     "rarity": "LEGEND",
-    "priority": 85,
+    "priority": 60,
     "price": 40000,
     "is_hot": true,
     "notes": "",
@@ -81,7 +81,7 @@ const DEFAULT_SKIN_DATABASE = [
     "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 8,
@@ -89,8 +89,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #8",
     "rarity": "RARE",
-    "priority": 85,
-    "price": 40000,
+    "priority": 60,
+    "price": 55000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -101,11 +101,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #9",
     "rarity": "EPIC",
-    "priority": 60,
+    "priority": 10,
     "price": 5000,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "B"
   },
   {
     "id": 10,
@@ -113,7 +113,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #10",
     "rarity": "LIMITED",
-    "priority": 75,
+    "priority": 60,
     "price": 40000,
     "is_hot": true,
     "notes": "",
@@ -125,11 +125,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #11",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 10000,
+    "priority": 11,
+    "price": 6000,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "B"
   },
   {
     "id": 12,
@@ -153,7 +153,7 @@ const DEFAULT_SKIN_DATABASE = [
     "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 14,
@@ -197,7 +197,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #17",
     "rarity": "NORMAL",
-    "priority": 32,
+    "priority": 2,
     "price": 150000,
     "is_hot": false,
     "notes": "",
@@ -209,7 +209,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #18",
     "rarity": "EPIC",
-    "priority": 33,
+    "priority": 2,
     "price": 90000,
     "is_hot": false,
     "notes": "",
@@ -225,7 +225,7 @@ const DEFAULT_SKIN_DATABASE = [
     "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 20,
@@ -237,7 +237,7 @@ const DEFAULT_SKIN_DATABASE = [
     "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 21,
@@ -282,7 +282,7 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #24",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 50000,
+    "price": 60000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -293,7 +293,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #25",
     "rarity": "LIMITED",
-    "priority": 31,
+    "priority": 2,
     "price": 100000,
     "is_hot": true,
     "notes": "",
@@ -305,8 +305,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #26",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 50000,
+    "priority": 60,
+    "price": 45000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -321,7 +321,7 @@ const DEFAULT_SKIN_DATABASE = [
     "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 28,
@@ -353,7 +353,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #30",
     "rarity": "LIMITED",
-    "priority": 75,
+    "priority": 61,
     "price": 20000,
     "is_hot": true,
     "notes": "",
@@ -365,7 +365,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #31",
     "rarity": "NORMAL",
-    "priority": 30,
+    "priority": 2,
     "price": 80000,
     "is_hot": false,
     "notes": "",
@@ -377,7 +377,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #32",
     "rarity": "RARE",
-    "priority": 40,
+    "priority": 60,
     "price": 50000,
     "is_hot": false,
     "notes": "",
@@ -389,7 +389,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #33",
     "rarity": "EPIC",
-    "priority": 29,
+    "priority": 2,
     "price": 100000,
     "is_hot": false,
     "notes": "",
@@ -401,7 +401,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #34",
     "rarity": "RARE",
-    "priority": 28,
+    "priority": 2,
     "price": 150000,
     "is_hot": false,
     "notes": "",
@@ -417,7 +417,7 @@ const DEFAULT_SKIN_DATABASE = [
     "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 36,
@@ -425,7 +425,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #36",
     "rarity": "EPIC",
-    "priority": 60,
+    "priority": 14,
     "price": 20000,
     "is_hot": false,
     "notes": "",
@@ -441,7 +441,7 @@ const DEFAULT_SKIN_DATABASE = [
     "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 38,
@@ -453,7 +453,7 @@ const DEFAULT_SKIN_DATABASE = [
     "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 39,
@@ -461,7 +461,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #39",
     "rarity": "EPIC",
-    "priority": 60,
+    "priority": 14,
     "price": 20000,
     "is_hot": false,
     "notes": "",
@@ -473,7 +473,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #40",
     "rarity": "LIMITED",
-    "priority": 26,
+    "priority": 2,
     "price": 300000,
     "is_hot": true,
     "notes": "",
@@ -485,7 +485,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #41",
     "rarity": "NORMAL",
-    "priority": 20,
+    "priority": 14,
     "price": 20000,
     "is_hot": false,
     "notes": "",
@@ -497,7 +497,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #42",
     "rarity": "LEGEND",
-    "priority": 27,
+    "priority": 2,
     "price": 150000,
     "is_hot": true,
     "notes": "",
@@ -509,8 +509,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #43",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 100000,
+    "priority": 14,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -521,11 +521,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #44",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 14,
+    "price": 70000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 45,
@@ -533,7 +533,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #45",
     "rarity": "LIMITED",
-    "priority": 40,
+    "priority": 4,
     "price": 300000,
     "is_hot": true,
     "notes": "",
@@ -545,11 +545,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #46",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 14,
+    "price": 70000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 47,
@@ -557,11 +557,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #47",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 14,
+    "price": 70000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 48,
@@ -569,11 +569,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #48",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 14,
+    "price": 70000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 49,
@@ -581,11 +581,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #49",
     "rarity": "LEGEND",
-    "priority": 80,
-    "price": 250000,
+    "priority": 10,
+    "price": 25000,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "B"
   },
   {
     "id": 50,
@@ -593,7 +593,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #50",
     "rarity": "LIMITED",
-    "priority": 25,
+    "priority": 2,
     "price": 200000,
     "is_hot": true,
     "notes": "",
@@ -606,10 +606,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #51",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 52,
@@ -618,10 +618,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #52",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 53,
@@ -629,11 +629,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #53",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 4,
+    "price": 250000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "SS"
   },
   {
     "id": 54,
@@ -641,11 +641,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #54",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 31,
+    "price": 70000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 55,
@@ -653,11 +653,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #55",
     "rarity": "LIMITED",
-    "priority": 75,
-    "price": 200000,
+    "priority": 31,
+    "price": 70000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 56,
@@ -666,10 +666,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #56",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 57,
@@ -677,11 +677,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #57",
     "rarity": "EPIC",
-    "priority": 60,
+    "priority": 8,
     "price": 120000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "SS"
   },
   {
     "id": 58,
@@ -690,10 +690,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #58",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 59,
@@ -701,11 +701,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #59",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 24,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 60,
@@ -713,11 +713,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #60",
     "rarity": "LIMITED",
-    "priority": 75,
-    "price": 200000,
+    "priority": 3,
+    "price": 80000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 61,
@@ -725,11 +725,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #61",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 3,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 62,
@@ -737,11 +737,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #62",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 8,
+    "price": 50000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 63,
@@ -749,11 +749,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #63",
     "rarity": "LEGEND",
-    "priority": 80,
-    "price": 250000,
+    "priority": 8,
+    "price": 60000,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 64,
@@ -761,11 +761,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #64",
     "rarity": "RARE",
-    "priority": 40,
+    "priority": 8,
     "price": 60000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 65,
@@ -773,11 +773,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #65",
     "rarity": "LIMITED",
-    "priority": 75,
-    "price": 200000,
+    "priority": 8,
+    "price": 65000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 66,
@@ -785,11 +785,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #66",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 9,
+    "price": 200000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "SS"
   },
   {
     "id": 67,
@@ -797,11 +797,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #67",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 2,
+    "price": 100000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 68,
@@ -810,10 +810,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #68",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 69,
@@ -822,10 +822,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #69",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 70,
@@ -834,10 +834,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #70",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 71,
@@ -845,11 +845,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #71",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 31,
+    "price": 70000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 72,
@@ -857,8 +857,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #72",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 7,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
     "tier": "S"
@@ -869,11 +869,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #73",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 10,
+    "price": 200000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "SS"
   },
   {
     "id": 74,
@@ -882,10 +882,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #74",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 75,
@@ -893,11 +893,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #75",
     "rarity": "LIMITED",
-    "priority": 75,
-    "price": 200000,
+    "priority": 1,
+    "price": 20000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "B"
   },
   {
     "id": 76,
@@ -905,11 +905,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #76",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 2,
+    "price": 120000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "SS"
   },
   {
     "id": 77,
@@ -917,11 +917,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #77",
     "rarity": "LEGEND",
-    "priority": 80,
-    "price": 250000,
+    "priority": 31,
+    "price": 100000,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 78,
@@ -929,11 +929,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #78",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 31,
+    "price": 70000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 79,
@@ -942,10 +942,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #79",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 80,
@@ -953,11 +953,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #80",
     "rarity": "LIMITED",
-    "priority": 75,
-    "price": 200000,
+    "priority": 2,
+    "price": 100000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 81,
@@ -965,11 +965,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #81",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 31,
+    "price": 65000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 82,
@@ -978,10 +978,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #82",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 83,
@@ -989,11 +989,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #83",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 7,
+    "price": 250000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "SS"
   },
   {
     "id": 84,
@@ -1001,7 +1001,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #84",
     "rarity": "LEGEND",
-    "priority": 80,
+    "priority": 7,
     "price": 250000,
     "is_hot": true,
     "notes": "",
@@ -1013,11 +1013,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #85",
     "rarity": "LIMITED",
-    "priority": 75,
-    "price": 200000,
+    "priority": 13,
+    "price": 40000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 86,
@@ -1025,11 +1025,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #86",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 13,
+    "price": 90000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 87,
@@ -1037,11 +1037,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #87",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 13,
+    "price": 60000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 88,
@@ -1050,10 +1050,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #88",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 89,
@@ -1062,10 +1062,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #89",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 90,
@@ -1074,10 +1074,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #90",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 91,
@@ -1085,11 +1085,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #91",
     "rarity": "LEGEND",
-    "priority": 80,
-    "price": 250000,
+    "priority": 12,
+    "price": 70000,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 92,
@@ -1097,11 +1097,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #92",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 12,
+    "price": 70000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 93,
@@ -1109,11 +1109,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #93",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 1,
+    "price": 25000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "B"
   },
   {
     "id": 94,
@@ -1121,11 +1121,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #94",
     "rarity": "RARE",
-    "priority": 40,
+    "priority": 31,
     "price": 60000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 95,
@@ -1134,10 +1134,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #95",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 96,
@@ -1146,10 +1146,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #96",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 97,
@@ -1157,11 +1157,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #97",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 31,
+    "price": 65000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 98,
@@ -1169,11 +1169,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #98",
     "rarity": "LEGEND",
-    "priority": 80,
-    "price": 250000,
+    "priority": 1,
+    "price": 20000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "B"
   },
   {
     "id": 99,
@@ -1181,11 +1181,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #99",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 1,
+    "price": 200000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "SS"
   },
   {
     "id": 100,
@@ -1193,8 +1193,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #100",
     "rarity": "LIMITED",
-    "priority": 75,
-    "price": 200000,
+    "priority": 1,
+    "price": 300000,
     "is_hot": true,
     "notes": "",
     "tier": "SS"
@@ -1205,11 +1205,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #101",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 2,
+    "price": 20000,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "B"
   },
   {
     "id": 102,
@@ -1217,11 +1217,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #102",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 2,
+    "price": 20000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "B"
   },
   {
     "id": 103,
@@ -1229,8 +1229,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #103",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 21,
+    "price": 75000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -1242,10 +1242,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #104",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 105,
@@ -1254,10 +1254,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #105",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 106,
@@ -1265,8 +1265,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #106",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 4,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -1277,8 +1277,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #107",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 4,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -1289,11 +1289,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #108",
     "rarity": "EPIC",
-    "priority": 60,
+    "priority": 4,
     "price": 120000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 109,
@@ -1302,10 +1302,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #109",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 110,
@@ -1313,7 +1313,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #110",
     "rarity": "LIMITED",
-    "priority": 13,
+    "priority": 1,
     "price": 400000,
     "is_hot": true,
     "notes": "",
@@ -1326,10 +1326,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #111",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 112,
@@ -1337,11 +1337,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #112",
     "rarity": "LEGEND",
-    "priority": 80,
-    "price": 250000,
+    "priority": 2,
+    "price": 100000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 113,
@@ -1349,8 +1349,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #113",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 6,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -1361,11 +1361,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #114",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 25,
+    "price": 50000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 115,
@@ -1374,10 +1374,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #115",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 116,
@@ -1386,10 +1386,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #116",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 117,
@@ -1397,7 +1397,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #117",
     "rarity": "EPIC",
-    "priority": 12,
+    "priority": 1,
     "price": 350000,
     "is_hot": false,
     "notes": "",
@@ -1409,8 +1409,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #118",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 2,
+    "price": 100000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -1421,7 +1421,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #119",
     "rarity": "LEGEND",
-    "priority": 11,
+    "priority": 1,
     "price": 350000,
     "is_hot": false,
     "notes": "",
@@ -1433,11 +1433,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #120",
     "rarity": "LIMITED",
-    "priority": 75,
-    "price": 200000,
+    "priority": 4,
+    "price": 120000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "S"
   },
   {
     "id": 121,
@@ -1446,10 +1446,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #121",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 122,
@@ -1457,7 +1457,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #122",
     "rarity": "RARE",
-    "priority": 10,
+    "priority": 1,
     "price": 300000,
     "is_hot": false,
     "notes": "",
@@ -1469,11 +1469,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #123",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 3,
+    "price": 300000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "SSS"
   },
   {
     "id": 124,
@@ -1481,8 +1481,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #124",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 2,
+    "price": 100000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -1494,10 +1494,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #125",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 126,
@@ -1505,11 +1505,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #126",
     "rarity": "LEGEND",
-    "priority": 80,
+    "priority": 5,
     "price": 250000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "SSS"
   },
   {
     "id": 127,
@@ -1518,10 +1518,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #127",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 128,
@@ -1530,10 +1530,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #128",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 129,
@@ -1542,10 +1542,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #129",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 130,
@@ -1554,10 +1554,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #130",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 131,
@@ -1566,10 +1566,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #131",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 132,
@@ -1578,10 +1578,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #132",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 133,
@@ -1590,10 +1590,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #133",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 134,
@@ -1602,10 +1602,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #134",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 135,
@@ -1614,10 +1614,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #135",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 136,
@@ -1626,10 +1626,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #136",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 137,
@@ -1638,10 +1638,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #137",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 138,
@@ -1650,10 +1650,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #138",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 139,
@@ -1661,11 +1661,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #139",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 4,
+    "price": 300000,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "SS"
   },
   {
     "id": 140,
@@ -1674,10 +1674,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #140",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 141,
@@ -1685,11 +1685,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #141",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 61,
+    "price": 30000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 142,
@@ -1698,10 +1698,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #142",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 143,
@@ -1710,10 +1710,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #143",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 144,
@@ -1721,11 +1721,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #144",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 61,
+    "price": 15000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 145,
@@ -1734,10 +1734,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #145",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 146,
@@ -1746,10 +1746,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #146",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 147,
@@ -1757,11 +1757,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #147",
     "rarity": "LEGEND",
-    "priority": 80,
-    "price": 250000,
+    "priority": 5,
+    "price": 35000,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 148,
@@ -1770,10 +1770,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #148",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 149,
@@ -1782,10 +1782,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #149",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 150,
@@ -1794,10 +1794,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #150",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 151,
@@ -1805,8 +1805,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #151",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 31,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -1817,7 +1817,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #152",
     "rarity": "RARE",
-    "priority": 9,
+    "priority": 1,
     "price": 460000,
     "is_hot": false,
     "notes": "",
@@ -1829,11 +1829,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #153",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 31,
+    "price": 70000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 154,
@@ -1842,10 +1842,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #154",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 155,
@@ -1854,10 +1854,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #155",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 156,
@@ -1866,10 +1866,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #156",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 157,
@@ -1878,10 +1878,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #157",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 158,
@@ -1890,10 +1890,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #158",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 159,
@@ -1902,10 +1902,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #159",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 160,
@@ -1914,10 +1914,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #160",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 161,
@@ -1926,10 +1926,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #161",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 162,
@@ -1938,10 +1938,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #162",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 163,
@@ -1949,8 +1949,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #163",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 60,
+    "price": 60000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -1961,8 +1961,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #164",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 23,
+    "price": 50000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -1973,11 +1973,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #165",
     "rarity": "LIMITED",
-    "priority": 75,
-    "price": 200000,
+    "priority": 1,
+    "price": 90000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 166,
@@ -1986,10 +1986,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #166",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 167,
@@ -1998,10 +1998,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #167",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 168,
@@ -2010,10 +2010,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #168",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 169,
@@ -2022,10 +2022,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #169",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 170,
@@ -2034,10 +2034,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #170",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 171,
@@ -2045,11 +2045,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #171",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 1,
+    "price": 300000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "SS"
   },
   {
     "id": 172,
@@ -2057,8 +2057,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #172",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 9,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -2069,11 +2069,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #173",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 3,
+    "price": 250000,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "SS"
   },
   {
     "id": 174,
@@ -2082,10 +2082,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #174",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 175,
@@ -2094,10 +2094,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #175",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 176,
@@ -2106,10 +2106,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #176",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 177,
@@ -2117,11 +2117,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #177",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 8,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 178,
@@ -2130,10 +2130,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #178",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 179,
@@ -2141,7 +2141,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #179",
     "rarity": "NORMAL",
-    "priority": 20,
+    "priority": 61,
     "price": 30000,
     "is_hot": false,
     "notes": "",
@@ -2154,10 +2154,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #180",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 181,
@@ -2166,10 +2166,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #181",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 182,
@@ -2178,10 +2178,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #182",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 183,
@@ -2190,10 +2190,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #183",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 184,
@@ -2202,10 +2202,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #184",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 185,
@@ -2214,10 +2214,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #185",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 186,
@@ -2225,11 +2225,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #186",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 31,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 187,
@@ -2238,10 +2238,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #187",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 188,
@@ -2250,10 +2250,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #188",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 189,
@@ -2262,10 +2262,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #189",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 190,
@@ -2274,10 +2274,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #190",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 191,
@@ -2286,10 +2286,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #191",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 192,
@@ -2298,10 +2298,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #192",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 193,
@@ -2310,10 +2310,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #193",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 194,
@@ -2321,8 +2321,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #194",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 31,
+    "price": 65000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -2334,10 +2334,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #195",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 196,
@@ -2346,10 +2346,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #196",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 197,
@@ -2357,11 +2357,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #197",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 8,
+    "price": 100000,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "S"
   },
   {
     "id": 198,
@@ -2370,10 +2370,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #198",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 199,
@@ -2382,10 +2382,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #199",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 200,
@@ -2394,10 +2394,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #200",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 201,
@@ -2406,10 +2406,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #201",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 202,
@@ -2418,10 +2418,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #202",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 203,
@@ -2430,10 +2430,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #203",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 204,
@@ -2442,10 +2442,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #204",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 205,
@@ -2454,10 +2454,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #205",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 206,
@@ -2466,10 +2466,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #206",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 207,
@@ -2478,10 +2478,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #207",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 208,
@@ -2490,10 +2490,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #208",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 209,
@@ -2502,10 +2502,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #209",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 210,
@@ -2514,10 +2514,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #210",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 211,
@@ -2526,10 +2526,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #211",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 212,
@@ -2538,10 +2538,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #212",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 213,
@@ -2550,10 +2550,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #213",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 214,
@@ -2562,10 +2562,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #214",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 215,
@@ -2574,10 +2574,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #215",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 216,
@@ -2586,10 +2586,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #216",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 217,
@@ -2598,10 +2598,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #217",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 218,
@@ -2610,10 +2610,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #218",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 219,
@@ -2622,10 +2622,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #219",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 220,
@@ -2634,10 +2634,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #220",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 221,
@@ -2646,10 +2646,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #221",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 222,
@@ -2658,10 +2658,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #222",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 223,
@@ -2669,8 +2669,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #223",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 10,
+    "price": 40000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -2682,10 +2682,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #224",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 225,
@@ -2693,11 +2693,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #225",
     "rarity": "LIMITED",
-    "priority": 75,
-    "price": 200000,
+    "priority": 62,
+    "price": 10000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 226,
@@ -2706,10 +2706,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #226",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 227,
@@ -2717,8 +2717,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #227",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 3,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -2730,10 +2730,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #228",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 229,
@@ -2742,10 +2742,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #229",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 230,
@@ -2753,11 +2753,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #230",
     "rarity": "LIMITED",
-    "priority": 75,
+    "priority": 5,
     "price": 200000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "SSS"
   },
   {
     "id": 231,
@@ -2766,10 +2766,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #231",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 232,
@@ -2778,10 +2778,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #232",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 233,
@@ -2790,10 +2790,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #233",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 234,
@@ -2802,10 +2802,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #234",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 235,
@@ -2814,10 +2814,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #235",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 236,
@@ -2826,10 +2826,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #236",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 237,
@@ -2837,11 +2837,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #237",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 61,
+    "price": 25000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 238,
@@ -2850,10 +2850,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #238",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 239,
@@ -2862,10 +2862,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #239",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 240,
@@ -2874,10 +2874,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #240",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 241,
@@ -2885,8 +2885,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #241",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 22,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -2898,10 +2898,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #242",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 243,
@@ -2909,11 +2909,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #243",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 7,
+    "price": 40000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 244,
@@ -2922,10 +2922,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #244",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 245,
@@ -2934,10 +2934,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #245",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 246,
@@ -2945,11 +2945,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #246",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 1,
+    "price": 12000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "B"
   },
   {
     "id": 247,
@@ -2958,10 +2958,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #247",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 248,
@@ -2970,10 +2970,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #248",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 249,
@@ -2981,11 +2981,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #249",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 11,
+    "price": 60000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 250,
@@ -2993,11 +2993,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #250",
     "rarity": "LIMITED",
-    "priority": 75,
-    "price": 200000,
+    "priority": 31,
+    "price": 80000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 251,
@@ -3006,10 +3006,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #251",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 252,
@@ -3018,10 +3018,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #252",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 253,
@@ -3030,10 +3030,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #253",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 254,
@@ -3042,10 +3042,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #254",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 255,
@@ -3054,10 +3054,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #255",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 256,
@@ -3065,7 +3065,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #256",
     "rarity": "RARE",
-    "priority": 40,
+    "priority": 31,
     "price": 60000,
     "is_hot": false,
     "notes": "",
@@ -3078,10 +3078,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #257",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 258,
@@ -3090,10 +3090,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #258",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 259,
@@ -3101,11 +3101,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #259",
     "rarity": "LEGEND",
-    "priority": 80,
-    "price": 250000,
+    "priority": 23,
+    "price": 40000,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 260,
@@ -3114,10 +3114,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #260",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 261,
@@ -3125,11 +3125,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #261",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 12,
+    "price": 100000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 262,
@@ -3138,10 +3138,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #262",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 263,
@@ -3150,10 +3150,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #263",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 264,
@@ -3162,10 +3162,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #264",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 265,
@@ -3174,10 +3174,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #265",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 266,
@@ -3186,10 +3186,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #266",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 267,
@@ -3198,10 +3198,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #267",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 268,
@@ -3210,10 +3210,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #268",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 269,
@@ -3222,10 +3222,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #269",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 270,
@@ -3234,10 +3234,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #270",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 271,
@@ -3246,10 +3246,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #271",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 272,
@@ -3258,10 +3258,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #272",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 273,
@@ -3269,7 +3269,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #273",
     "rarity": "LEGEND",
-    "priority": 80,
+    "priority": 6,
     "price": 250000,
     "is_hot": false,
     "notes": "",
@@ -3282,10 +3282,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #274",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 275,
@@ -3294,10 +3294,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #275",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 276,
@@ -3305,11 +3305,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #276",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 11,
+    "price": 5000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "B"
   },
   {
     "id": 277,
@@ -3318,10 +3318,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #277",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 278,
@@ -3330,10 +3330,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #278",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 279,
@@ -3342,10 +3342,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #279",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 280,
@@ -3354,10 +3354,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #280",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 281,
@@ -3365,11 +3365,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #281",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 31,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "A"
   },
   {
     "id": 282,
@@ -3378,10 +3378,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #282",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 283,
@@ -3389,7 +3389,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #283",
     "rarity": "NORMAL",
-    "priority": 24,
+    "priority": 2,
     "price": 200000,
     "is_hot": false,
     "notes": "",
@@ -3401,11 +3401,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #284",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 5,
+    "price": 100000,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "S"
   },
   {
     "id": 285,
@@ -3414,10 +3414,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #285",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 286,
@@ -3425,7 +3425,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #286",
     "rarity": "RARE",
-    "priority": 8,
+    "priority": 1,
     "price": 500000,
     "is_hot": false,
     "notes": "",
@@ -3438,10 +3438,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #287",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 288,
@@ -3450,10 +3450,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #288",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 289,
@@ -3461,11 +3461,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #289",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 31,
+    "price": 90000,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "A"
   },
   {
     "id": 290,
@@ -3473,8 +3473,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #290",
     "rarity": "LIMITED",
-    "priority": 75,
-    "price": 200000,
+    "priority": 1,
+    "price": 400000,
     "is_hot": true,
     "notes": "",
     "tier": "SS"
@@ -3486,10 +3486,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #291",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 292,
@@ -3498,10 +3498,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #292",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 293,
@@ -3509,11 +3509,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #293",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 11,
+    "price": 200000,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "SS"
   },
   {
     "id": 294,
@@ -3522,10 +3522,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #294",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 295,
@@ -3533,11 +3533,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #295",
     "rarity": "LIMITED",
-    "priority": 75,
-    "price": 200000,
+    "priority": 31,
+    "price": 75000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 296,
@@ -3546,10 +3546,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #296",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 297,
@@ -3558,10 +3558,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #297",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 298,
@@ -3569,11 +3569,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #298",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 11,
+    "price": 6000,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "B"
   },
   {
     "id": 299,
@@ -3581,7 +3581,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #299",
     "rarity": "NORMAL",
-    "priority": 23,
+    "priority": 2,
     "price": 350000,
     "is_hot": false,
     "notes": "",
@@ -3593,7 +3593,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #300",
     "rarity": "LIMITED",
-    "priority": 7,
+    "priority": 1,
     "price": 500000,
     "is_hot": true,
     "notes": "",
@@ -3605,11 +3605,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #301",
     "rarity": "LEGEND",
-    "priority": 80,
-    "price": 250000,
+    "priority": 1,
+    "price": 150000,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "S"
   },
   {
     "id": 302,
@@ -3618,10 +3618,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #302",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 303,
@@ -3630,10 +3630,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #303",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 304,
@@ -3642,10 +3642,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #304",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 305,
@@ -3654,10 +3654,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #305",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 306,
@@ -3665,11 +3665,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #306",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 10,
+    "price": 90000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 307,
@@ -3678,10 +3678,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #307",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 308,
@@ -3690,10 +3690,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #308",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 309,
@@ -3702,10 +3702,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #309",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 310,
@@ -3714,10 +3714,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #310",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 311,
@@ -3726,10 +3726,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #311",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 312,
@@ -3738,10 +3738,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #312",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 313,
@@ -3750,10 +3750,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #313",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 314,
@@ -3761,8 +3761,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #314",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 22,
+    "price": 50000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -3774,10 +3774,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #315",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 316,
@@ -3786,10 +3786,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #316",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 317,
@@ -3798,10 +3798,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #317",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 318,
@@ -3810,10 +3810,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #318",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 319,
@@ -3822,10 +3822,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #319",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 320,
@@ -3834,10 +3834,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #320",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 321,
@@ -3846,10 +3846,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #321",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 322,
@@ -3857,11 +3857,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #322",
     "rarity": "LEGEND",
-    "priority": 80,
-    "price": 250000,
+    "priority": 31,
+    "price": 90000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 323,
@@ -3870,10 +3870,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #323",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 324,
@@ -3881,11 +3881,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #324",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 31,
+    "price": 85000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 325,
@@ -3894,10 +3894,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #325",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 326,
@@ -3906,10 +3906,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #326",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 327,
@@ -3917,7 +3917,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #327",
     "rarity": "EPIC",
-    "priority": 6,
+    "priority": 1,
     "price": 450000,
     "is_hot": false,
     "notes": "",
@@ -3929,11 +3929,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #328",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 4,
+    "price": 250000,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "SS"
   },
   {
     "id": 329,
@@ -3942,10 +3942,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #329",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 330,
@@ -3954,10 +3954,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #330",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 331,
@@ -3966,10 +3966,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #331",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 332,
@@ -3978,10 +3978,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #332",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 333,
@@ -3990,10 +3990,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #333",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 334,
@@ -4002,10 +4002,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #334",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 335,
@@ -4014,10 +4014,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #335",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 336,
@@ -4026,10 +4026,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #336",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 337,
@@ -4037,11 +4037,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #337",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 5,
+    "price": 250000,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "SS"
   },
   {
     "id": 338,
@@ -4050,10 +4050,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #338",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 339,
@@ -4061,11 +4061,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #339",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 62,
+    "price": 10000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 340,
@@ -4074,10 +4074,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #340",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 341,
@@ -4086,10 +4086,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #341",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 342,
@@ -4097,11 +4097,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #342",
     "rarity": "EPIC",
-    "priority": 60,
+    "priority": 4,
     "price": 120000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 343,
@@ -4109,11 +4109,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #343",
     "rarity": "LEGEND",
-    "priority": 80,
-    "price": 250000,
+    "priority": 4,
+    "price": 25000,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "B"
   },
   {
     "id": 344,
@@ -4122,10 +4122,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #344",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 345,
@@ -4134,10 +4134,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #345",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 346,
@@ -4146,10 +4146,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #346",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 347,
@@ -4158,10 +4158,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #347",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 348,
@@ -4170,10 +4170,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #348",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 349,
@@ -4182,10 +4182,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #349",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 350,
@@ -4193,11 +4193,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #350",
     "rarity": "LEGEND",
-    "priority": 80,
-    "price": 250000,
+    "priority": 7,
+    "price": 90000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "S"
   },
   {
     "id": 351,
@@ -4206,10 +4206,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #351",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 352,
@@ -4218,10 +4218,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #352",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 353,
@@ -4230,10 +4230,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #353",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 354,
@@ -4242,10 +4242,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #354",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 355,
@@ -4253,11 +4253,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #355",
     "rarity": "LIMITED",
-    "priority": 75,
-    "price": 200000,
+    "priority": 31,
+    "price": 82000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 356,
@@ -4266,10 +4266,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #356",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 357,
@@ -4278,10 +4278,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #357",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 358,
@@ -4290,10 +4290,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #358",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 359,
@@ -4301,11 +4301,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #359",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 25,
+    "price": 50000,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "A"
   },
   {
     "id": 360,
@@ -4314,10 +4314,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #360",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 361,
@@ -4326,10 +4326,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #361",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 362,
@@ -4338,10 +4338,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #362",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 363,
@@ -4350,10 +4350,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #363",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 364,
@@ -4362,10 +4362,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #364",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 365,
@@ -4373,11 +4373,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #365",
     "rarity": "LIMITED",
-    "priority": 75,
-    "price": 200000,
+    "priority": 61,
+    "price": 25000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 366,
@@ -4386,10 +4386,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #366",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 367,
@@ -4398,10 +4398,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #367",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 368,
@@ -4410,10 +4410,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #368",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 369,
@@ -4422,10 +4422,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #369",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 370,
@@ -4433,11 +4433,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #370",
     "rarity": "LIMITED",
-    "priority": 75,
-    "price": 200000,
+    "priority": 10,
+    "price": 90000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 371,
@@ -4446,10 +4446,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #371",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 372,
@@ -4458,10 +4458,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #372",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 373,
@@ -4470,10 +4470,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #373",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 374,
@@ -4482,10 +4482,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #374",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 375,
@@ -4494,10 +4494,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #375",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 376,
@@ -4506,10 +4506,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #376",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 377,
@@ -4517,11 +4517,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #377",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 200,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 378,
@@ -4530,10 +4530,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #378",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 379,
@@ -4541,11 +4541,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #379",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 3,
+    "price": 130000,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "S"
   },
   {
     "id": 380,
@@ -4554,10 +4554,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #380",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 381,
@@ -4565,11 +4565,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #381",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 20,
+    "price": 20000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 382,
@@ -4578,10 +4578,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #382",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 383,
@@ -4590,10 +4590,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #383",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 384,
@@ -4602,10 +4602,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #384",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 385,
@@ -4614,10 +4614,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #385",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 386,
@@ -4626,10 +4626,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #386",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 387,
@@ -4637,7 +4637,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #387",
     "rarity": "EPIC",
-    "priority": 4,
+    "priority": 1,
     "price": 450000,
     "is_hot": false,
     "notes": "",
@@ -4650,10 +4650,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #388",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 389,
@@ -4661,11 +4661,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #389",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 15,
+    "price": 100000,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "A"
   },
   {
     "id": 390,
@@ -4673,7 +4673,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #390",
     "rarity": "LIMITED",
-    "priority": 22,
+    "priority": 2,
     "price": 300000,
     "is_hot": true,
     "notes": "",
@@ -4686,10 +4686,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #391",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 392,
@@ -4709,11 +4709,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #393",
     "rarity": "EPIC",
-    "priority": 60,
+    "priority": 6,
     "price": 120000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 394,
@@ -4721,8 +4721,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #394",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 62,
+    "price": 10000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -4734,10 +4734,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #395",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 396,
@@ -4745,11 +4745,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #396",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 12,
+    "price": 180000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "SS"
   },
   {
     "id": 397,
@@ -4757,11 +4757,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #397",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 10,
+    "price": 100000,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "A"
   },
   {
     "id": 398,
@@ -4770,10 +4770,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #398",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 399,
@@ -4782,10 +4782,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #399",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 400,
@@ -4794,10 +4794,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #400",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 401,
@@ -4805,11 +4805,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #401",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 5,
+    "price": 250000,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "SS"
   },
   {
     "id": 402,
@@ -4818,10 +4818,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #402",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 403,
@@ -4829,11 +4829,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #403",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 8,
+    "price": 90000,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "S"
   },
   {
     "id": 404,
@@ -4841,7 +4841,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #404",
     "rarity": "RARE",
-    "priority": 5,
+    "priority": 1,
     "price": 450000,
     "is_hot": false,
     "notes": "",
@@ -4853,8 +4853,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #405",
     "rarity": "LIMITED",
-    "priority": 75,
-    "price": 200000,
+    "priority": 2,
+    "price": 350000,
     "is_hot": true,
     "notes": "",
     "tier": "SS"
@@ -4865,11 +4865,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #406",
     "rarity": "LEGEND",
-    "priority": 80,
-    "price": 250000,
+    "priority": 31,
+    "price": 75000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 407,
@@ -4877,11 +4877,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #407",
     "rarity": "NORMAL",
-    "priority": 20,
+    "priority": 6,
     "price": 30000,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "A"
   },
   {
     "id": 408,
@@ -4889,8 +4889,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #408",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 6,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
     "tier": "S"
@@ -4902,10 +4902,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #409",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 410,
@@ -4913,11 +4913,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #410",
     "rarity": "LIMITED",
-    "priority": 75,
-    "price": 200000,
+    "priority": 1,
+    "price": 20000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "B"
   },
   {
     "id": 411,
@@ -4926,10 +4926,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #411",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 412,
@@ -4938,10 +4938,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #412",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 413,
@@ -4950,10 +4950,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #413",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 414,
@@ -4962,10 +4962,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #414",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 415,
@@ -4974,10 +4974,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #415",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 416,
@@ -4986,10 +4986,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #416",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 417,
@@ -4998,10 +4998,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #417",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 418,
@@ -5010,10 +5010,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #418",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 419,
@@ -5022,10 +5022,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #419",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 420,
@@ -5034,10 +5034,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #420",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 421,
@@ -5046,10 +5046,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #421",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 422,
@@ -5058,10 +5058,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #422",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 423,
@@ -5070,10 +5070,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #423",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 424,
@@ -5081,8 +5081,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #424",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 9,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -5094,10 +5094,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #425",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 426,
@@ -5105,11 +5105,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #426",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 15,
+    "price": 40000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 427,
@@ -5118,10 +5118,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #427",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 428,
@@ -5129,7 +5129,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #428",
     "rarity": "RARE",
-    "priority": 21,
+    "priority": 2,
     "price": 250000,
     "is_hot": false,
     "notes": "",
@@ -5141,11 +5141,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #429",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 24,
+    "price": 50000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 430,
@@ -5154,10 +5154,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #430",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 431,
@@ -5166,10 +5166,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #431",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 432,
@@ -5178,10 +5178,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #432",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 433,
@@ -5190,10 +5190,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #433",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 434,
@@ -5201,11 +5201,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #434",
     "rarity": "LEGEND",
-    "priority": 80,
-    "price": 250000,
+    "priority": 31,
+    "price": 85000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 435,
@@ -5214,10 +5214,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #435",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 436,
@@ -5226,10 +5226,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #436",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 437,
@@ -5238,10 +5238,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #437",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 438,
@@ -5249,11 +5249,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #438",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 15,
+    "price": 100000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 439,
@@ -5261,11 +5261,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #439",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 14,
+    "price": 20000,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "A"
   },
   {
     "id": 440,
@@ -5273,8 +5273,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #440",
     "rarity": "LIMITED",
-    "priority": 75,
-    "price": 200000,
+    "priority": 6,
+    "price": 250000,
     "is_hot": true,
     "notes": "",
     "tier": "SS"
@@ -5286,10 +5286,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #441",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 442,
@@ -5298,10 +5298,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #442",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 443,
@@ -5310,10 +5310,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #443",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 444,
@@ -5321,11 +5321,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #444",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 62,
+    "price": 10000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 445,
@@ -5334,10 +5334,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #445",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 446,
@@ -5346,10 +5346,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #446",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 447,
@@ -5358,10 +5358,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #447",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 448,
@@ -5370,10 +5370,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #448",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 449,
@@ -5381,11 +5381,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #449",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 8,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "S"
   },
   {
     "id": 450,
@@ -5394,10 +5394,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #450",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 451,
@@ -5406,10 +5406,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #451",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 452,
@@ -5417,8 +5417,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #452",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 30,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -5429,11 +5429,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #453",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 1,
+    "price": 20000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "B"
   },
   {
     "id": 454,
@@ -5441,8 +5441,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #454",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 62,
+    "price": 10000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -5453,7 +5453,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #455",
     "rarity": "LEGEND",
-    "priority": 3,
+    "priority": 1,
     "price": 450000,
     "is_hot": false,
     "notes": "",
@@ -5465,11 +5465,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #456",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 62,
+    "price": 10000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 457,
@@ -5477,11 +5477,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #457",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 30,
+    "price": 75000,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "A"
   },
   {
     "id": 458,
@@ -5490,10 +5490,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #458",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 459,
@@ -5502,10 +5502,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #459",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 460,
@@ -5514,10 +5514,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #460",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 461,
@@ -5526,10 +5526,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #461",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 462,
@@ -5538,10 +5538,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #462",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 463,
@@ -5549,11 +5549,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #463",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 31,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "A"
   },
   {
     "id": 464,
@@ -5561,8 +5561,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #464",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 62,
+    "price": 10000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -5574,10 +5574,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #465",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 466,
@@ -5585,11 +5585,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #466",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 1,
+    "price": 150000,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "S"
   },
   {
     "id": 467,
@@ -5598,10 +5598,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #467",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 468,
@@ -5610,10 +5610,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #468",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 469,
@@ -5622,10 +5622,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #469",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 470,
@@ -5634,10 +5634,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #470",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 471,
@@ -5645,11 +5645,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #471",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 61,
+    "price": 20000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "B"
   },
   {
     "id": 472,
@@ -5657,8 +5657,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #472",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 3,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -5669,11 +5669,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #473",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 2,
+    "price": 130000,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "S"
   },
   {
     "id": 474,
@@ -5682,10 +5682,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #474",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 475,
@@ -5694,10 +5694,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #475",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 476,
@@ -5706,10 +5706,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #476",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 477,
@@ -5718,10 +5718,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #477",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 478,
@@ -5730,10 +5730,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #478",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 479,
@@ -5742,10 +5742,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #479",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 480,
@@ -5754,10 +5754,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #480",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 481,
@@ -5766,10 +5766,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #481",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 482,
@@ -5778,10 +5778,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #482",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 483,
@@ -5790,10 +5790,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #483",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 484,
@@ -5802,10 +5802,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #484",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 485,
@@ -5814,10 +5814,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #485",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 486,
@@ -5826,10 +5826,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #486",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 487,
@@ -5838,10 +5838,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #487",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 488,
@@ -5849,11 +5849,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #488",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 1,
+    "price": 20000,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "B"
   },
   {
     "id": 489,
@@ -5862,10 +5862,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #489",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 490,
@@ -5874,10 +5874,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #490",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 491,
@@ -5886,10 +5886,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #491",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 492,
@@ -5898,10 +5898,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #492",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 493,
@@ -5910,10 +5910,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #493",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 494,
@@ -5934,10 +5934,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #495",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 496,
@@ -5946,10 +5946,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #496",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 497,
@@ -5958,10 +5958,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #497",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 498,
@@ -5969,11 +5969,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #498",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 2,
+    "price": 100000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 499,
@@ -5981,8 +5981,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #499",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 1,
+    "price": 20000,
     "is_hot": false,
     "notes": "",
     "tier": "B"
@@ -5994,10 +5994,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #500",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 501,
@@ -6006,10 +6006,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #501",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 502,
@@ -6018,10 +6018,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #502",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 503,
@@ -6030,10 +6030,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #503",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 504,
@@ -6041,11 +6041,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #504",
     "rarity": "LEGEND",
-    "priority": 80,
-    "price": 250000,
+    "priority": 5,
+    "price": 80000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 505,
@@ -6053,11 +6053,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #505",
     "rarity": "LIMITED",
-    "priority": 75,
-    "price": 200000,
+    "priority": 21,
+    "price": 80000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 506,
@@ -6065,8 +6065,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #506",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 62,
+    "price": 10000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -6078,10 +6078,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #507",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 508,
@@ -6090,10 +6090,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #508",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 509,
@@ -6102,10 +6102,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #509",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 510,
@@ -6113,11 +6113,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #510",
     "rarity": "LIMITED",
-    "priority": 75,
-    "price": 200000,
+    "priority": 1,
+    "price": 20000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "B"
   },
   {
     "id": 511,
@@ -6126,10 +6126,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #511",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 512,
@@ -6138,10 +6138,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #512",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 513,
@@ -6150,10 +6150,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #513",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 514,
@@ -6162,10 +6162,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #514",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 515,
@@ -6173,11 +6173,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #515",
     "rarity": "LIMITED",
-    "priority": 75,
-    "price": 200000,
+    "priority": 30,
+    "price": 80000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 516,
@@ -6185,11 +6185,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #516",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 31,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 517,
@@ -6201,7 +6201,7 @@ const DEFAULT_SKIN_DATABASE = [
     "price": 30000,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "A"
   },
   {
     "id": 518,
@@ -6210,10 +6210,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #518",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 519,
@@ -6221,11 +6221,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #519",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 75,
+    "price": 6000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 520,
@@ -6234,10 +6234,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #520",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 521,
@@ -6245,11 +6245,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #521",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 5,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "A"
   },
   {
     "id": 522,
@@ -6258,10 +6258,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #522",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 523,
@@ -6270,10 +6270,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #523",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 524,
@@ -6282,10 +6282,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #524",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 525,
@@ -6294,10 +6294,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #525",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 526,
@@ -6306,10 +6306,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #526",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 527,
@@ -6318,10 +6318,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #527",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 528,
@@ -6330,10 +6330,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #528",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 529,
@@ -6341,11 +6341,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #529",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 3,
+    "price": 250000,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "SS"
   },
   {
     "id": 530,
@@ -6354,10 +6354,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #530",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 531,
@@ -6365,11 +6365,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #531",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 7,
+    "price": 100000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 532,
@@ -6378,10 +6378,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #532",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 533,
@@ -6390,10 +6390,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #533",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 534,
@@ -6402,10 +6402,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #534",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 535,
@@ -6414,10 +6414,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #535",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 536,
@@ -6426,10 +6426,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #536",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 537,
@@ -6438,10 +6438,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #537",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 538,
@@ -6449,8 +6449,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #538",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 8,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -6462,10 +6462,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #539",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 540,
@@ -6474,10 +6474,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #540",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 541,
@@ -6486,10 +6486,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #541",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 542,
@@ -6498,10 +6498,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #542",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 543,
@@ -6510,10 +6510,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #543",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 544,
@@ -6522,10 +6522,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #544",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 545,
@@ -6534,10 +6534,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #545",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 546,
@@ -6546,10 +6546,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #546",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 547,
@@ -6557,11 +6557,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #547",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 31,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "A"
   },
   {
     "id": 548,
@@ -6569,8 +6569,8 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #548",
     "rarity": "RARE",
-    "priority": 40,
-    "price": 60000,
+    "priority": 1,
+    "price": 100000,
     "is_hot": false,
     "notes": "",
     "tier": "A"
@@ -6581,11 +6581,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #549",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 62,
+    "price": 12000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 550,
@@ -6593,11 +6593,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #550",
     "rarity": "LIMITED",
-    "priority": 75,
-    "price": 200000,
+    "priority": 6,
+    "price": 120000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   },
   {
     "id": 551,
@@ -6605,7 +6605,7 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #551",
     "rarity": "NORMAL",
-    "priority": 2,
+    "priority": 1,
     "price": 450000,
     "is_hot": false,
     "notes": "",
@@ -6618,10 +6618,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #552",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 553,
@@ -6630,10 +6630,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #553",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 554,
@@ -6642,10 +6642,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #554",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 555,
@@ -6654,10 +6654,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #555",
     "rarity": "LIMITED",
     "priority": 75,
-    "price": 200000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 556,
@@ -6666,10 +6666,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #556",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 557,
@@ -6677,11 +6677,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #557",
     "rarity": "NORMAL",
-    "priority": 20,
-    "price": 30000,
+    "priority": 3,
+    "price": 80000,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "A"
   },
   {
     "id": 558,
@@ -6690,10 +6690,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #558",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 559,
@@ -6702,10 +6702,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #559",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 560,
@@ -6714,10 +6714,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #560",
     "rarity": "LEGEND",
     "priority": 80,
-    "price": 250000,
+    "price": 0,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "C"
   },
   {
     "id": 561,
@@ -6725,11 +6725,11 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "",
     "skin_name": "Skin #561",
     "rarity": "EPIC",
-    "priority": 60,
-    "price": 120000,
+    "priority": 1,
+    "price": 40000,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "A"
   },
   {
     "id": 562,
@@ -6738,10 +6738,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #562",
     "rarity": "RARE",
     "priority": 40,
-    "price": 60000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "A"
+    "tier": "C"
   },
   {
     "id": 563,
@@ -6750,10 +6750,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #563",
     "rarity": "NORMAL",
     "priority": 20,
-    "price": 30000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "B"
+    "tier": "C"
   },
   {
     "id": 564,
@@ -6762,10 +6762,10 @@ const DEFAULT_SKIN_DATABASE = [
     "skin_name": "Skin #564",
     "rarity": "EPIC",
     "priority": 60,
-    "price": 120000,
+    "price": 0,
     "is_hot": false,
     "notes": "",
-    "tier": "S"
+    "tier": "C"
   },
   {
     "id": 565,
@@ -6773,10 +6773,10 @@ const DEFAULT_SKIN_DATABASE = [
     "hero_name": "Zilong",
     "skin_name": "Rồng Nghi Lễ",
     "rarity": "LEGEND",
-    "priority": 90,
-    "price": 350000,
+    "priority": 5,
+    "price": 80000,
     "is_hot": true,
     "notes": "",
-    "tier": "SS"
+    "tier": "A"
   }
-];
+];
